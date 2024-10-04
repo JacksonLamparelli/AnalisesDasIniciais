@@ -30,9 +30,8 @@
               "@angular/material/prebuilt-themes/rose-red.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "baseHref": "/dist"
-          },
+            "scripts": []
+            },
           "configurations": {
             "production": {
               "budgets": [
