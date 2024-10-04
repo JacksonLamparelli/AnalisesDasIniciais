@@ -1,0 +1,36 @@
+<section class="example-section" [formGroup]="toppings">
+  <h4>"Check list" - Pensão por morte:</h4>
+  <app-checkbox-basico
+    (changeNumber)="onChangeNumber()"
+    (showResidencia)="onShowResidencia()"
+    (showComunicacao)="onShowComunicacao()"
+    (showRenuncia)="onShowRenuncia()"
+    (showCelular)="onShowCelular()"
+    (showCertoEDeterminado)="onShowCertoEDeterminado()"
+    (showHipossuficiencia)="onShowHipossuficiencia()"
+    (showValor)="onShowValor()"
+    (showProc)="onShowProc()"
+  ></app-checkbox-basico>
+
+  
+  <p (click)="handleClick()">
+    <mat-checkbox formControlName="docs-de-cujus"
+      >Certidão de Óbito e Documentos Pessoais do De Cujus</mat-checkbox
+    >
+  </p>
+  <p (click)="handleClick2()">
+    <mat-checkbox formControlName="prova-material"
+      >Autor(a) Companheiro(a): início de prova material</mat-checkbox
+    >
+  </p>
+  <p (click)="handleClick3()">
+    <mat-checkbox formControlName="de-cujus-especial"
+      >Falecido Segurado Especial: início de prova material</mat-checkbox
+    >
+  </p>
+  <p (click)="handleClick4()">
+    <mat-checkbox formControlName="ex-conjuge"
+      >Autor(a) Ex-cônjuge: dependência econômica</mat-checkbox
+    >
+  </p>
+</section>

@@ -1,0 +1,32 @@
+<button mat-button [matMenuTriggerFor]="animals">Iniciar</button>
+<mat-menu #animals="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="vertebrates">INSS</button>
+  <button mat-menu-item [matMenuTriggerFor]="invertebrates">CEF</button>
+</mat-menu>
+
+<mat-menu #vertebrates="matMenu">
+  <button mat-menu-item (click)="handleClick()">Benefícios por incapacidade</button>
+  <button mat-menu-item (click)="handleClick2()">Básico</button>
+  <button mat-menu-item (click)="handleClick3()">Pensão por Morte</button>
+  <button mat-menu-item >Auxílio-Reclusão</button>
+  <button mat-menu-item>Aposentadoria Por Tempo de Contribuição</button>
+  <button mat-menu-item>LOAS</button>
+</mat-menu>
+
+<mat-menu #invertebrates="matMenu">
+  <button mat-menu-item>Insects</button>
+  <button mat-menu-item>Molluscs</button>
+  <button mat-menu-item>Crustaceans</button>
+  <button mat-menu-item>Corals</button>
+  <button mat-menu-item>Arachnids</button>
+  <button mat-menu-item>Velvet worms</button>
+  <button mat-menu-item>Horseshoe crabs</button>
+</mat-menu>
+
+<mat-menu #reptiles="matMenu">
+  <button mat-menu-item>Banded Day Gecko</button>
+  <button mat-menu-item>Banded Gila Monster</button>
+  <button mat-menu-item>Black Tree Monitor</button>
+  <button mat-menu-item>Blue Spiny Lizard</button>
+  <button mat-menu-item disabled>Velociraptor</button>
+</mat-menu>
