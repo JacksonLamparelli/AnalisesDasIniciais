@@ -29,7 +29,7 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "baseHref": "/projeto01"
+            "baseHref": "/projeto01/docs/browser"
           },
           "configurations": {
             "production": {
