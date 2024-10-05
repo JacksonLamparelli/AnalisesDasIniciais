@@ -10,3 +10,116 @@
 .texto {
   background-color: aqua;
 }
+
+.header {
+  background-color: #3284d6;
+  text-align: left;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #598cd896;
+  padding: 20px;
+}
+
+/* Estilo para o Menu Lateral */
+.sidebar {
+  width: 60px;
+  background-color: #0077aa15;
+  color: #e72a2a;
+  padding: 20px;
+}
+
+.sidebar .menu-options {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .menu-options li {
+  margin-bottom: 10px;
+}
+
+.sidebar .menu-options a {
+  color: #ecf0f1;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.sidebar .menu-options a:hover {
+  background-color: #1abc9c;
+}
+
+/* Estilo para o conteúdo principal */
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+  justify-content: space-between;
+}
+
+/* Seção de checklist */
+.checklist-section {
+  width: 40%;
+  background-color: #598cd896;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção de visualização de texto */
+.text-viewer {
+  width: 40%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-viewer h3 {
+  margin-bottom: 10px;
+}
+
+.generated-text {
+  min-height: 100px;
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #bdc3c7;
+}
+
+/* Estilo para o Menu Secundário */
+.secondary-menu {
+  width: 200px;
+  background-color: #34495e;
+  color: white;
+  padding: 20px;
+}
+
+.secondary-menu h4 {
+  margin-bottom: 10px;
+}
+
+.secondary-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.secondary-menu li {
+  margin-bottom: 10px;
+}
+
+.secondary-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.secondary-menu a:hover {
+  text-decoration: underline;
+}

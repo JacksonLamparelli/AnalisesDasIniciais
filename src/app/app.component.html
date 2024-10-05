@@ -1,10 +1,13 @@
-<section class="geral">
-  <p>Análise das Petições Iniciais</p>
-  <app-menu
+<div class="container">
+  <div class="sidebar">
+    <app-menu
     (incapacidade)="onIncapacidade()"
     (basico)="onBasico()"
     (pensao)="onPensao()"
   ></app-menu>
+</div>
+  
+<div class="checklist-section">
   <app-checkbox-pensao
     *ngIf="showCheckboxPensao"
     (changeNumber)="onChangeNumber()"
@@ -44,10 +47,10 @@
     (showCertoEDeterminado)="onShowCertoEDeterminado()"
     (showHipossuficiencia)="onShowHipossuficiencia()"
     (showValor)="onShowValor()"
-    (showProcuracao)="onShowProc()"
+    (showProc)="onShowProc()"
   ></app-checkbox-basico>
-
-  <section class="texto">
+</div>
+<div class="text-viewer">  
     <app-texto *ngIf="showRg" class="texto"></app-texto>
     <app-procuracao *ngIf="showProc" class="texto"></app-procuracao>
     <app-texto-residencia
@@ -73,5 +76,5 @@
       class="texto"
     ></app-certo-e-determinado>
     <app-valor-da-causa *ngIf="showValor" class="texto"></app-valor-da-causa>
-  </section>
-</section>
+  </div>
+  </div>
