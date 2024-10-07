@@ -3,66 +3,54 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OnInit, Output, EventEmitter } from '@angular/core';
+import { CheckboxBasicoComponent } from '../checkbox-basico/checkbox-basico.component';
 
 /** @title Checkboxes with reactive forms */
 @Component({
-  selector: 'app-checkbox-ad',
-  templateUrl: './checkbox-ad.component.html',
-  styleUrl: './checkbox-ad.component.css',
+  selector: 'app-checkbox-atc',
+  templateUrl: './checkbox-atc.component.html',
+  styleUrl: './checkbox-atc.component.css',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    JsonPipe,
+    CheckboxBasicoComponent,
+    ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxAdComponent implements OnInit {
+export class CheckboxAtcComponent implements OnInit {
+  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
   @Output() changeNumber: EventEmitter<any> = new EventEmitter();
   @Output() showResidencia: EventEmitter<any> = new EventEmitter();
   @Output() showComunicacao: EventEmitter<any> = new EventEmitter();
-  @Output() showIndPP: EventEmitter<any> = new EventEmitter();
-  @Output() showProfissao: EventEmitter<any> = new EventEmitter();
-  @Output() showDoenca: EventEmitter<any> = new EventEmitter();
-  @Output() show129A: EventEmitter<any> = new EventEmitter();
   @Output() showRenuncia: EventEmitter<any> = new EventEmitter();
   @Output() showHipossuficiencia: EventEmitter<any> = new EventEmitter();
   @Output() showValor: EventEmitter<any> = new EventEmitter();
   @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
-  @Output() showProcuracao: EventEmitter<any> = new EventEmitter();
-  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
-
+  @Output() showCelular: EventEmitter<any> = new EventEmitter();
+  @Output() showProc: EventEmitter<any> = new EventEmitter();
+    
   ngOnInit(): void {}
 
-  handleClick() {
+  onChangeNumber() {
     this.changeNumber.emit();
   }
 
-  handleClick2() {
+  onShowResidencia() {
     this.showResidencia.emit();
   }
 
-  handleClick3() {
+  onShowComunicacao() {
     this.showComunicacao.emit();
   }
 
-  handleClick4() {
-    this.showIndPP.emit();
-  }
-
-  handleClick5() {
-    this.showProfissao.emit();
-  }
-
-  handleClick6() {
-    this.showDoenca.emit();
-  }
-
-  handleClick7() {
-    this.show129A.emit();
-  }
-
-  handleClick8() {
+  onShowRenuncia() {
     this.showRenuncia.emit();
   }
 
-  handleClick9() {
+  onShowHipossuficiencia() {
     this.showHipossuficiencia.emit();
   }
 
@@ -70,33 +58,43 @@ export class CheckboxAdComponent implements OnInit {
     this.showValor.emit();
   }
 
-  handleClick11() {
+  onShowCertoEDeterminado() {
     this.showCertoEDeterminado.emit();
   }
 
-  handleClick12() {
-    this.showProcuracao.emit();
+  onShowCelular() {
+    this.showCelular.emit();
   }
 
-  handleClick13() {
-    this.showTelefone.emit();
+  onShowValor() {
+    this.showValor.emit();
+  }
+
+  onShowProc() {
+    this.showProc.emit();
+  }
+
+  handleClick5() {
+    this.showResidencia.emit;
+  }
+
+  onShowTelefone() {
+    this.showTelefone.emit;
   }
 
   private readonly _formBuilder = inject(FormBuilder);
 
   readonly toppings = this._formBuilder.group({
+    telefone: false,
     rg: false,
     procuracao: false,
-    residência: false,
+    residencia: false,
     renuncia: false,
     hipossuficiencia: false,
     comunicacao: false,
     indeferimentoPP: false,
     profissão: false,
     doença: false,
-    'valor-da-causa': false,
-    'pedido-certo': false,
-    'ação-anterior': false,
-    telefone: false,
+        
   });
 }

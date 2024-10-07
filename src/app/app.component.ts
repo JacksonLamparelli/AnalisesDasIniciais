@@ -20,6 +20,16 @@ import { ValorDaCausaComponent } from './components/texto/valor-da-causa/valor-d
 import { MenuComponent } from './components/menu/menu.component';
 import { CheckboxBasicoComponent } from './components/checkbox-basico/checkbox-basico.component';
 import { CheckboxPensaoComponent } from './components/checkbox-pensao/checkbox-pensao.component';
+import { TelefoneComponent } from './components/texto/telefone/telefone.component';
+import { DocsDeCujusComponent } from './components/texto/docs-de-cujus/docs-de-cujus.component';
+import { ProvaMaterialConvivenciaDeCujusComponent } from './components/texto/prova-material-convivencia-de-cujus/prova-material-convivencia-de-cujus.component';
+import { ProvaMaterialDeCujusComponent } from './components/texto/prova-material-de-cujus/prova-material-de-cujus.component';
+import { DependenciaEconomicaDeCujusComponent } from './components/texto/dependencia-economica-de-cujus/dependencia-economica-de-cujus.component';
+import { CheckboxAtcComponent } from './components/checkbox-atc/checkbox-atc.component';
+import { CheckboxArComponent } from './components/checkbox-ar/checkbox-ar.component';
+import { DocsReclusoComponent } from './components/texto/docs-recluso/docs-recluso.component';
+import { OutrosDependentesComponent } from "./components/texto/outros-dependentes/outros-dependentes.component";
+import { AtestadoCarcerarioComponent } from "./components/texto/atestado-carcerario/atestado-carcerario.component";
 
 @Component({
   selector: 'app-root',
@@ -46,7 +56,19 @@ import { CheckboxPensaoComponent } from './components/checkbox-pensao/checkbox-p
     MenuComponent,
     CheckboxBasicoComponent,
     CheckboxPensaoComponent,
-  ],
+    TelefoneComponent,
+    DocsDeCujusComponent,
+    ProvaMaterialConvivenciaDeCujusComponent,
+    ProvaMaterialDeCujusComponent,
+    DependenciaEconomicaDeCujusComponent,
+    CheckboxAtcComponent,
+    CheckboxArComponent,
+    DocsReclusoComponent,
+    OutrosDependentesComponent,
+    AtestadoCarcerarioComponent,
+    
+
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -68,6 +90,16 @@ export class AppComponent {
   showCheckBoxAd: boolean = false;
   showCheckBasico: boolean = false;
   showCheckboxPensao: boolean = false;
+  showDocsDeCujus: boolean = false;
+  showAutorCompanheiro: boolean = false;
+  showDeCujusEspecial: boolean = false;
+  showExConjuge: boolean = false;
+  showTelefone: boolean = false;
+  showCheckBoxAtc: boolean = false;
+  showCheckBoxAr: boolean = false
+  showDocsRecluso: boolean = false;
+  showEventuaisOutros: boolean = false;
+  showAtestadoPermanencia: boolean = false;
 
   onChangeNumber() {
     this.showRg = !this.showRg;
@@ -78,7 +110,7 @@ export class AppComponent {
   }
 
   onShowResidencia2() {
-    console.log("teste");
+    console.log('teste');
   }
 
   onShowComunicacao() {
@@ -127,13 +159,64 @@ export class AppComponent {
 
   onIncapacidade() {
     this.showCheckBoxAd = !this.showCheckBoxAd;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+    this.showCheckBoxAr = false;
+
   }
 
   onBasico() {
     this.showCheckBasico = !this.showCheckBasico;
+    this.showCheckboxPensao = false;
+    this.showCheckBoxAd = false;
   }
 
   onPensao() {
     this.showCheckboxPensao = !this.showCheckboxPensao;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckBoxAr = false;
+  }
+
+  onAtc() {
+    this.showCheckBoxAtc = !this.showCheckBoxAtc;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+    this.showCheckBoxAr = false;
+  }
+
+  onAr() {
+    this.showCheckBoxAr = !this.showCheckBoxAr;
+    this.showCheckBoxAtc = false;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+  }
+
+  onShowDocsDeCujus() {
+    this.showDocsDeCujus = !this.showDocsDeCujus;
+  }
+  onShowAutorCompanheiro() {
+    this.showAutorCompanheiro = !this.showAutorCompanheiro;
+  }
+  onShowDeCujusEspecial() {
+    this.showDeCujusEspecial = !this.showDeCujusEspecial;
+  }
+  onShowExConjuge() {
+    this.showExConjuge = !this.showExConjuge;
+  }
+  onShowTelefone() {
+    this.showTelefone = !this.showTelefone;
+  }
+
+  onShowDocsRecluso() {
+    this.showDocsRecluso = !this.showDocsRecluso;
+  }
+  onShowEventuaisOutros() {
+    this.showEventuaisOutros = !this.showEventuaisOutros;
+  }
+  onShowAtestadoPermanencia() {
+    this.showAtestadoPermanencia = !this.showAtestadoPermanencia;
   }
 }

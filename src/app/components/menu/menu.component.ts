@@ -16,6 +16,8 @@ export class MenuComponent {
   @Output() incapacidade: EventEmitter<any> = new EventEmitter();
   @Output() basico: EventEmitter<any> = new EventEmitter();
   @Output() pensao: EventEmitter<any> = new EventEmitter();
+  @Output() atc: EventEmitter<any> = new EventEmitter();
+  @Output() ar: EventEmitter<any> = new EventEmitter();
 
   handleClick() {
     this.incapacidade.emit();
@@ -28,4 +30,11 @@ export class MenuComponent {
   handleClick3() {
     this.pensao.emit();
     }
+
+    handleClick4() {
+      this.atc.emit();
+      }
+      handleClick5() {
+        this.ar.emit();
+        }
 }

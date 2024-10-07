@@ -4,13 +4,12 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OnInit, Output, EventEmitter } from '@angular/core';
 import { CheckboxBasicoComponent } from '../checkbox-basico/checkbox-basico.component';
-import { MenuComponent } from '../menu/menu.component';
 
 /** @title Checkboxes with reactive forms */
 @Component({
-  selector: 'app-checkbox-pensao',
-  templateUrl: './checkbox-pensao.component.html',
-  styleUrl: './checkbox-pensao.component.css',
+  selector: 'app-checkbox-ar',
+  templateUrl: './checkbox-ar.component.html',
+  styleUrl: './checkbox-ar.component.css',
   standalone: true,
   imports: [
     FormsModule,
@@ -18,11 +17,11 @@ import { MenuComponent } from '../menu/menu.component';
     MatCheckboxModule,
     JsonPipe,
     CheckboxBasicoComponent,
-    MenuComponent,
-  ],
+    ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxPensaoComponent implements OnInit {
+export class CheckboxArComponent implements OnInit {
+  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
   @Output() changeNumber: EventEmitter<any> = new EventEmitter();
   @Output() showResidencia: EventEmitter<any> = new EventEmitter();
   @Output() showComunicacao: EventEmitter<any> = new EventEmitter();
@@ -32,11 +31,12 @@ export class CheckboxPensaoComponent implements OnInit {
   @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
   @Output() showCelular: EventEmitter<any> = new EventEmitter();
   @Output() showProc: EventEmitter<any> = new EventEmitter();
-  @Output() showDocsDeCujus: EventEmitter<any> = new EventEmitter();
-  @Output() showAutorCompanheiro: EventEmitter<any> = new EventEmitter();
-  @Output() showDeCujusEspecial: EventEmitter<any> = new EventEmitter();
-  @Output() showExConjuge: EventEmitter<any> = new EventEmitter();
-  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
+  @Output() showDocsRecluso: EventEmitter<any> = new EventEmitter();
+  @Output() showEventuaisOutros: EventEmitter<any> = new EventEmitter();
+  @Output() showAtestadoPermanencia: EventEmitter<any> = new EventEmitter();
+
+  
+  
   
   ngOnInit(): void {}
 
@@ -81,23 +81,15 @@ export class CheckboxPensaoComponent implements OnInit {
   }
 
   handleClick() {
-    this.showDocsDeCujus.emit();
+    this.showDocsRecluso.emit();
   }
 
   handleClick2() {
-    this.showAutorCompanheiro.emit();
+    this.showEventuaisOutros.emit();
   }
 
   handleClick3() {
-    this.showDeCujusEspecial.emit();
-  }
-
-  handleClick4() {
-    this.showExConjuge.emit();
-  }
-
-  handleClick5() {
-    this.showResidencia.emit;
+    this.showAtestadoPermanencia.emit();
   }
 
   onShowTelefone() {
@@ -107,6 +99,7 @@ export class CheckboxPensaoComponent implements OnInit {
   private readonly _formBuilder = inject(FormBuilder);
 
   readonly toppings = this._formBuilder.group({
+    telefone: false,
     rg: false,
     procuracao: false,
     residencia: false,
@@ -116,13 +109,9 @@ export class CheckboxPensaoComponent implements OnInit {
     indeferimentoPP: false,
     profissão: false,
     doença: false,
-    telefone: false,
-    'valor-da-causa': false,
-    'pedido-certo': false,
-    'docs-de-cujus': false,
-    'prova-material': false,
-    'de-cujus-especial': false,
-    'ex-conjuge': false,
-    
+    'docs-recluso': false,
+    'outros-dependentes': false,
+    'atestado-permanencia': false,
+        
   });
 }

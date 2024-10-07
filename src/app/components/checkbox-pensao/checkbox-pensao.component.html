@@ -1,5 +1,7 @@
 <section class="example-section" [formGroup]="toppings">
-  <h4>"Check list" - Pensão por morte:</h4>
+  <h4>Pensão por Morte:</h4>
+
+  
   <app-checkbox-basico
     (changeNumber)="onChangeNumber()"
     (showResidencia)="onShowResidencia()"
@@ -10,6 +12,7 @@
     (showHipossuficiencia)="onShowHipossuficiencia()"
     (showValor)="onShowValor()"
     (showProc)="onShowProc()"
+    (showTelefone)="onShowTelefone()"
   ></app-checkbox-basico>
 
   

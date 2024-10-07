@@ -26,6 +26,7 @@ export class CheckboxBasicoComponent implements OnInit {
   @Output() showValor: EventEmitter<any> = new EventEmitter();
   @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
   @Output() showProc: EventEmitter<any> = new EventEmitter();
+  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
     
 ngOnInit(): void {
     
@@ -63,6 +64,10 @@ handleClick11() {
   this.showCertoEDeterminado.emit()
 }
 
+handleClick12() {
+  this.showTelefone.emit()
+}
+
 
   private readonly _formBuilder = inject(FormBuilder);
 
@@ -78,6 +83,7 @@ handleClick11() {
     doença: false,
     "valor-da-causa": false,
     "pedido-certo": false,
+    telefone: false
 
   });
 }
