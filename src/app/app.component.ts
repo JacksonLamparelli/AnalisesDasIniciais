@@ -30,6 +30,8 @@ import { CheckboxArComponent } from './components/checkbox-ar/checkbox-ar.compon
 import { DocsReclusoComponent } from './components/texto/docs-recluso/docs-recluso.component';
 import { OutrosDependentesComponent } from "./components/texto/outros-dependentes/outros-dependentes.component";
 import { AtestadoCarcerarioComponent } from "./components/texto/atestado-carcerario/atestado-carcerario.component";
+import { CheckboxAeComponent } from './components/checkbox-ae/checkbox-ae.component';
+import { FormulariosComponent } from "./components/texto/formularios/formularios.component";
 
 @Component({
   selector: 'app-root',
@@ -66,8 +68,8 @@ import { AtestadoCarcerarioComponent } from "./components/texto/atestado-carcera
     DocsReclusoComponent,
     OutrosDependentesComponent,
     AtestadoCarcerarioComponent,
-    
-
+    CheckboxAeComponent,
+    FormulariosComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -100,6 +102,8 @@ export class AppComponent {
   showDocsRecluso: boolean = false;
   showEventuaisOutros: boolean = false;
   showAtestadoPermanencia: boolean = false;
+  showCheckBoxAe: boolean = false;
+  showFormularios: boolean = false;
 
   onChangeNumber() {
     this.showRg = !this.showRg;
@@ -108,11 +112,7 @@ export class AppComponent {
   onShowResidencia() {
     this.showResidencia = !this.showResidencia;
   }
-
-  onShowResidencia2() {
-    console.log('teste');
-  }
-
+  
   onShowComunicacao() {
     this.showComunicacao = !this.showComunicacao;
   }
@@ -142,6 +142,7 @@ export class AppComponent {
   }
 
   onShowCelular() {
+
     this.showCelular = !this.showCelular;
   }
 
@@ -162,6 +163,7 @@ export class AppComponent {
     this.showCheckBasico = false;
     this.showCheckboxPensao = false;
     this.showCheckBoxAr = false;
+    this.showCheckBoxAe = false;
 
   }
 
@@ -169,6 +171,7 @@ export class AppComponent {
     this.showCheckBasico = !this.showCheckBasico;
     this.showCheckboxPensao = false;
     this.showCheckBoxAd = false;
+    this.showCheckBoxAe = false;
   }
 
   onPensao() {
@@ -176,6 +179,7 @@ export class AppComponent {
     this.showCheckBoxAd = false;
     this.showCheckBasico = false;
     this.showCheckBoxAr = false;
+    this.showCheckBoxAe = false;
   }
 
   onAtc() {
@@ -184,10 +188,21 @@ export class AppComponent {
     this.showCheckBasico = false;
     this.showCheckboxPensao = false;
     this.showCheckBoxAr = false;
+    this.showCheckBoxAe = false;
   }
 
   onAr() {
     this.showCheckBoxAr = !this.showCheckBoxAr;
+    this.showCheckBoxAtc = false;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+    this.showCheckBoxAe = false;
+  }
+
+  onAe() {
+    this.showCheckBoxAe = !this.showCheckBoxAe;
+    this.showCheckBoxAr = false;
     this.showCheckBoxAtc = false;
     this.showCheckBoxAd = false;
     this.showCheckBasico = false;
@@ -219,4 +234,9 @@ export class AppComponent {
   onShowAtestadoPermanencia() {
     this.showAtestadoPermanencia = !this.showAtestadoPermanencia;
   }
+  onShowFormularios() {
+    this.showFormularios = !this.showFormularios;
+  }
+
+  
 }

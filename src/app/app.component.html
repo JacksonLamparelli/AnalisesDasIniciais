@@ -6,6 +6,7 @@
       (pensao)="onPensao()"
       (atc)="onAtc()"
       (ar)="onAr()"
+      (ae)="onAe()"
     ></app-menu>
   </div>
 
@@ -43,7 +44,7 @@
       *ngIf="showCheckboxPensao"
       (showTelefone)="onShowTelefone()"
       (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia2()"
+      (showResidencia)="onShowResidencia()"
       (showComunicacao)="onShowComunicacao()"
       (showRenuncia)="onShowRenuncia()"
       (showCelular)="onShowCelular()"
@@ -87,6 +88,18 @@
       (showProc)="onShowProc()"
       (showTelefone)="onShowTelefone()"
     ></app-checkbox-basico>
+    <app-checkbox-ae       *ngIf="showCheckBoxAe"
+    (showTelefone)="onShowCelular()"
+    (changeNumber)="onChangeNumber()"
+    (showResidencia)="onShowResidencia()"
+    (showComunicacao)="onShowComunicacao()"
+    (showRenuncia)="onShowRenuncia()"
+    (showCelular)="onShowCelular()"
+    (showCertoEDeterminado)="onShowCertoEDeterminado()"
+    (showHipossuficiencia)="onShowHipossuficiencia()"
+    (showValor)="onShowValor()"
+    (showProc)="onShowProc()"
+    (showFormularios)="onShowFormularios()"></app-checkbox-ae>
   </div>
   <div class="text-viewer">
     <p>
@@ -139,5 +152,8 @@
     <app-atestado-carcerario
       *ngIf="showAtestadoPermanencia"
     ></app-atestado-carcerario>
+    <app-formularios
+      *ngIf="showFormularios"
+    ></app-formularios>
       </div>
 </div>
