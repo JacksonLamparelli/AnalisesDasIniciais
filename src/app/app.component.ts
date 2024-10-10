@@ -32,6 +32,9 @@ import { OutrosDependentesComponent } from "./components/texto/outros-dependente
 import { AtestadoCarcerarioComponent } from "./components/texto/atestado-carcerario/atestado-carcerario.component";
 import { CheckboxAeComponent } from './components/checkbox-ae/checkbox-ae.component';
 import { FormulariosComponent } from "./components/texto/formularios/formularios.component";
+import { CheckboxRuralComponent } from './components/checkbox-rural/checkbox-rural.component';
+import { InicioProvaMaterialComponent } from "./components/texto/inicio-prova-material/inicio-prova-material.component";
+import { ConcentradaRuralComponent } from './components/concentrada-rural/concentrada-rural.component';
 
 @Component({
   selector: 'app-root',
@@ -69,7 +72,11 @@ import { FormulariosComponent } from "./components/texto/formularios/formularios
     OutrosDependentesComponent,
     AtestadoCarcerarioComponent,
     CheckboxAeComponent,
-    FormulariosComponent
+    FormulariosComponent,
+    CheckboxRuralComponent,
+    InicioProvaMaterialComponent,
+    InicioProvaMaterialComponent,
+    ConcentradaRuralComponent,
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -104,6 +111,10 @@ export class AppComponent {
   showAtestadoPermanencia: boolean = false;
   showCheckBoxAe: boolean = false;
   showFormularios: boolean = false;
+  showCheckBoxRural: boolean = false;
+  showProvaMaterial: boolean = false;
+  showGeral: boolean = true;
+  showRural: boolean = false;
 
   onChangeNumber() {
     this.showRg = !this.showRg;
@@ -164,6 +175,9 @@ export class AppComponent {
     this.showCheckboxPensao = false;
     this.showCheckBoxAr = false;
     this.showCheckBoxAe = false;
+    this.showCheckBoxRural = false;
+    this.showGeral = true;
+    this.showRural = false;
 
   }
 
@@ -172,6 +186,9 @@ export class AppComponent {
     this.showCheckboxPensao = false;
     this.showCheckBoxAd = false;
     this.showCheckBoxAe = false;
+    this.showCheckBoxRural = false;
+    this.showGeral = true;
+    this.showRural = false;
   }
 
   onPensao() {
@@ -180,6 +197,9 @@ export class AppComponent {
     this.showCheckBasico = false;
     this.showCheckBoxAr = false;
     this.showCheckBoxAe = false;
+    this.showCheckBoxRural = false;
+    this.showGeral = true;
+    this.showRural = false;
   }
 
   onAtc() {
@@ -189,6 +209,9 @@ export class AppComponent {
     this.showCheckboxPensao = false;
     this.showCheckBoxAr = false;
     this.showCheckBoxAe = false;
+    this.showCheckBoxRural = false;
+    this.showGeral = true;
+    this.showRural = false;
   }
 
   onAr() {
@@ -198,6 +221,9 @@ export class AppComponent {
     this.showCheckBasico = false;
     this.showCheckboxPensao = false;
     this.showCheckBoxAe = false;
+    this.showCheckBoxRural = false;
+    this.showGeral = true;
+    this.showRural = false;
   }
 
   onAe() {
@@ -207,6 +233,21 @@ export class AppComponent {
     this.showCheckBoxAd = false;
     this.showCheckBasico = false;
     this.showCheckboxPensao = false;
+    this.showCheckBoxRural = false;
+    this.showGeral = true;
+    this.showRural = false;
+  }
+
+  onRural(){
+    this.showCheckBoxRural = !this.showCheckBoxRural
+    this.showCheckBoxAe = false;
+    this.showCheckBoxAr = false;
+    this.showCheckBoxAtc = false;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+    this.showGeral = false;
+    this.showRural = true;
   }
 
   onShowDocsDeCujus() {
@@ -236,6 +277,10 @@ export class AppComponent {
   }
   onShowFormularios() {
     this.showFormularios = !this.showFormularios;
+  }
+
+  onShowProvaMaterial() {
+    this.showProvaMaterial = !this.showProvaMaterial;
   }
 
   

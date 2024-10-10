@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, NgModule } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OnInit, Output, EventEmitter } from '@angular/core';
@@ -12,7 +12,8 @@ import { OnInit, Output, EventEmitter } from '@angular/core';
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
-})
+  })
+
 export class CheckboxAdComponent implements OnInit {
   @Output() changeNumber: EventEmitter<any> = new EventEmitter();
   @Output() showResidencia: EventEmitter<any> = new EventEmitter();
@@ -27,6 +28,8 @@ export class CheckboxAdComponent implements OnInit {
   @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
   @Output() showProcuracao: EventEmitter<any> = new EventEmitter();
   @Output() showTelefone: EventEmitter<any> = new EventEmitter();
+
+
 
   ngOnInit(): void {}
 
@@ -98,5 +101,9 @@ export class CheckboxAdComponent implements OnInit {
     'pedido-certo': false,
     'ação-anterior': false,
     telefone: false,
-  });
+
+    });
+
+    
 }
+

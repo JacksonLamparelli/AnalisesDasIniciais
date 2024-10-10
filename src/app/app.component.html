@@ -7,6 +7,7 @@
       (atc)="onAtc()"
       (ar)="onAr()"
       (ae)="onAe()"
+      (rural)="onRural()"
     ></app-menu>
   </div>
 
@@ -88,7 +89,21 @@
       (showProc)="onShowProc()"
       (showTelefone)="onShowTelefone()"
     ></app-checkbox-basico>
-    <app-checkbox-ae       *ngIf="showCheckBoxAe"
+    <app-checkbox-ae
+      *ngIf="showCheckBoxAe"
+      (showTelefone)="onShowCelular()"
+      (changeNumber)="onChangeNumber()"
+      (showResidencia)="onShowResidencia()"
+      (showComunicacao)="onShowComunicacao()"
+      (showRenuncia)="onShowRenuncia()"
+      (showCelular)="onShowCelular()"
+      (showCertoEDeterminado)="onShowCertoEDeterminado()"
+      (showHipossuficiencia)="onShowHipossuficiencia()"
+      (showValor)="onShowValor()"
+      (showProc)="onShowProc()"
+      (showFormularios)="onShowFormularios()"
+    ></app-checkbox-ae>
+    <app-checkbox-rural *ngIf="showCheckBoxRural"
     (showTelefone)="onShowCelular()"
     (changeNumber)="onChangeNumber()"
     (showResidencia)="onShowResidencia()"
@@ -99,14 +114,20 @@
     (showHipossuficiencia)="onShowHipossuficiencia()"
     (showValor)="onShowValor()"
     (showProc)="onShowProc()"
-    (showFormularios)="onShowFormularios()"></app-checkbox-ae>
+    (showProvaMaterial)="onShowProvaMaterial()"></app-checkbox-rural>
   </div>
   <div class="text-viewer">
-    <p>
+    <p style="text-align: justify" *ngIf="showGeral">
       Nos termos da Portaria 21/2019 deste Juizado Especial Federal Cível e do
-      Art. 203, 4º do CPC, fica a parte autora intimada para, no prazo de 15
-      (quinze) dias, promover emenda à petição inicial, nos seguintes termos:
+      Art. 203, &sect; 4º do CPC, fica a parte autora intimada para, no
+      <strong> prazo de 15 (quinze) dias</strong>, promover emenda à petição
+      inicial, nos seguintes termos:
     </p>
+
+    <app-concentrada-rural *ngIf="showRural"></app-concentrada-rural>
+
+
+
     <app-texto *ngIf="showRg" class="texto"></app-texto>
     <app-procuracao *ngIf="showProc" class="texto"></app-procuracao>
     <app-texto-residencia
@@ -143,17 +164,14 @@
     <app-dependencia-economica-de-cujus
       *ngIf="showExConjuge"
     ></app-dependencia-economica-de-cujus>
-    <app-docs-recluso
-      *ngIf="showDocsRecluso"
-    ></app-docs-recluso>
+    <app-docs-recluso *ngIf="showDocsRecluso"></app-docs-recluso>
     <app-outros-dependentes
       *ngIf="showEventuaisOutros"
     ></app-outros-dependentes>
     <app-atestado-carcerario
       *ngIf="showAtestadoPermanencia"
     ></app-atestado-carcerario>
-    <app-formularios
-      *ngIf="showFormularios"
-    ></app-formularios>
-      </div>
+    <app-formularios *ngIf="showFormularios"></app-formularios>
+    <app-inicio-prova-material *ngIf="showProvaMaterial"></app-inicio-prova-material>
+  </div>
 </div>
