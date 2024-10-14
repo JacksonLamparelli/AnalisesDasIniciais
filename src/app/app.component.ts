@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { CheckboxAdComponent } from './components/checkbox-ad/checkbox-ad.component';
-import { TextoComponent } from './components/texto/texto/texto.component';
 import { NgIf } from '@angular/common';
 import { TextoResidenciaComponent } from './components/texto-residencia/texto-residencia.component';
 import { ComunicacaoComponent } from './components/texto/comunicacao/comunicacao.component';
@@ -28,13 +27,22 @@ import { DependenciaEconomicaDeCujusComponent } from './components/texto/depende
 import { CheckboxAtcComponent } from './components/checkbox-atc/checkbox-atc.component';
 import { CheckboxArComponent } from './components/checkbox-ar/checkbox-ar.component';
 import { DocsReclusoComponent } from './components/texto/docs-recluso/docs-recluso.component';
-import { OutrosDependentesComponent } from "./components/texto/outros-dependentes/outros-dependentes.component";
-import { AtestadoCarcerarioComponent } from "./components/texto/atestado-carcerario/atestado-carcerario.component";
+import { OutrosDependentesComponent } from './components/texto/outros-dependentes/outros-dependentes.component';
+import { AtestadoCarcerarioComponent } from './components/texto/atestado-carcerario/atestado-carcerario.component';
 import { CheckboxAeComponent } from './components/checkbox-ae/checkbox-ae.component';
-import { FormulariosComponent } from "./components/texto/formularios/formularios.component";
+import { FormulariosComponent } from './components/texto/formularios/formularios.component';
 import { CheckboxRuralComponent } from './components/checkbox-rural/checkbox-rural.component';
-import { InicioProvaMaterialComponent } from "./components/texto/inicio-prova-material/inicio-prova-material.component";
+import { InicioProvaMaterialComponent } from './components/texto/inicio-prova-material/inicio-prova-material.component';
 import { ConcentradaRuralComponent } from './components/concentrada-rural/concentrada-rural.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { CheckBoxLoasIdosoComponent } from './components/checkbox-loas-idoso/checkbox-loas-idoso.component';
+import { CheckBoxLoasDeficienteComponent } from './components/checkbox-loas-deficiente/checkbox-loas-deficiente.component';
+import { TelefoneLoasComponent } from './components/texto/telefone-loas/telefone-loas.component';
+import { DocumentosPessoaisComponent } from './components/texto/documentos-pessoais/documentos-pessoais.component';
+import { ConcentradaPensaoComponent } from './components/concentrada-pensao/concentrada-pensao.component';
+import { IndicacoesEnderecoComponent } from './components/texto/indicacoes-endereco/indicacoes-endereco.component';
 
 @Component({
   selector: 'app-root',
@@ -43,7 +51,6 @@ import { ConcentradaRuralComponent } from './components/concentrada-rural/concen
     RouterOutlet,
     MatCheckboxModule,
     CheckboxAdComponent,
-    TextoComponent,
     NgIf,
     TextoResidenciaComponent,
     ComunicacaoComponent,
@@ -77,7 +84,16 @@ import { ConcentradaRuralComponent } from './components/concentrada-rural/concen
     InicioProvaMaterialComponent,
     InicioProvaMaterialComponent,
     ConcentradaRuralComponent,
-],
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    CheckBoxLoasDeficienteComponent,
+    CheckBoxLoasIdosoComponent,
+    TelefoneLoasComponent,
+    DocumentosPessoaisComponent,
+    ConcentradaPensaoComponent,
+    IndicacoesEnderecoComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -105,7 +121,7 @@ export class AppComponent {
   showExConjuge: boolean = false;
   showTelefone: boolean = false;
   showCheckBoxAtc: boolean = false;
-  showCheckBoxAr: boolean = false
+  showCheckBoxAr: boolean = false;
   showDocsRecluso: boolean = false;
   showEventuaisOutros: boolean = false;
   showAtestadoPermanencia: boolean = false;
@@ -115,6 +131,11 @@ export class AppComponent {
   showProvaMaterial: boolean = false;
   showGeral: boolean = true;
   showRural: boolean = false;
+  showCheckBoxLoasIdoso: boolean = false;
+  showCheckBoxLoasDeficiente: boolean = false;
+  showTelefoneLoas: boolean = false;
+  showConcentradaPensao: boolean = false;
+  showIndicacaoEndereco: boolean = false;
 
   onChangeNumber() {
     this.showRg = !this.showRg;
@@ -123,7 +144,7 @@ export class AppComponent {
   onShowResidencia() {
     this.showResidencia = !this.showResidencia;
   }
-  
+
   onShowComunicacao() {
     this.showComunicacao = !this.showComunicacao;
   }
@@ -153,8 +174,11 @@ export class AppComponent {
   }
 
   onShowCelular() {
-
     this.showCelular = !this.showCelular;
+  }
+
+  onShowTelefoneLoas() {
+    this.showTelefoneLoas = !this.showTelefoneLoas;
   }
 
   onShowCertoEDeterminado() {
@@ -178,7 +202,8 @@ export class AppComponent {
     this.showCheckBoxRural = false;
     this.showGeral = true;
     this.showRural = false;
-
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
   }
 
   onBasico() {
@@ -189,6 +214,8 @@ export class AppComponent {
     this.showCheckBoxRural = false;
     this.showGeral = true;
     this.showRural = false;
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
   }
 
   onPensao() {
@@ -200,6 +227,8 @@ export class AppComponent {
     this.showCheckBoxRural = false;
     this.showGeral = true;
     this.showRural = false;
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
   }
 
   onAtc() {
@@ -212,6 +241,8 @@ export class AppComponent {
     this.showCheckBoxRural = false;
     this.showGeral = true;
     this.showRural = false;
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
   }
 
   onAr() {
@@ -224,6 +255,8 @@ export class AppComponent {
     this.showCheckBoxRural = false;
     this.showGeral = true;
     this.showRural = false;
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
   }
 
   onAe() {
@@ -236,10 +269,12 @@ export class AppComponent {
     this.showCheckBoxRural = false;
     this.showGeral = true;
     this.showRural = false;
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
   }
 
-  onRural(){
-    this.showCheckBoxRural = !this.showCheckBoxRural
+  onRural() {
+    this.showCheckBoxRural = !this.showCheckBoxRural;
     this.showCheckBoxAe = false;
     this.showCheckBoxAr = false;
     this.showCheckBoxAtc = false;
@@ -248,14 +283,45 @@ export class AppComponent {
     this.showCheckboxPensao = false;
     this.showGeral = false;
     this.showRural = true;
+    this.showCheckBoxLoasDeficiente = false;
+    this.showCheckBoxLoasIdoso = false;
+  }
+
+  onLoasIdoso() {
+    this.showCheckBoxLoasIdoso = !this.showCheckBoxLoasIdoso;
+    this.showCheckBoxRural = false;
+    this.showCheckBoxAe = false;
+    this.showCheckBoxAr = false;
+    this.showCheckBoxAtc = false;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+    this.showGeral = true;
+    this.showRural = false;
+  }
+
+  onLoasDeficiente() {
+    this.showCheckBoxLoasDeficiente = !this.showCheckBoxLoasDeficiente;
+    this.showCheckBoxLoasIdoso = false;
+    this.showCheckBoxRural = false;
+    this.showCheckBoxAe = false;
+    this.showCheckBoxAr = false;
+    this.showCheckBoxAtc = false;
+    this.showCheckBoxAd = false;
+    this.showCheckBasico = false;
+    this.showCheckboxPensao = false;
+    this.showGeral = true;
+    this.showRural = false;
   }
 
   onShowDocsDeCujus() {
     this.showDocsDeCujus = !this.showDocsDeCujus;
   }
   onShowAutorCompanheiro() {
-    this.showAutorCompanheiro = !this.showAutorCompanheiro;
+    this.showGeral = !this.showGeral;
+    this.showConcentradaPensao = !this.showConcentradaPensao;
   }
+
   onShowDeCujusEspecial() {
     this.showDeCujusEspecial = !this.showDeCujusEspecial;
   }
@@ -283,5 +349,44 @@ export class AppComponent {
     this.showProvaMaterial = !this.showProvaMaterial;
   }
 
+  onShowIndicacaoEndereco() {
+    this.showIndicacaoEndereco = !this.showIndicacaoEndereco;
+  }
+
   
+
+  async copyContentWithFormatting() {
+    // Seleciona o elemento pelo ID
+    const element = document.getElementById('content-to-copy');
+    if (element) {
+        // Cria um container temporário para armazenar o conteúdo HTML
+        const tempContainer = document.createElement('div');
+        tempContainer.appendChild(element.cloneNode(true));
+        document.body.appendChild(tempContainer);
+
+        // Seleciona o conteúdo do container temporário
+        const range = document.createRange();
+        range.selectNodeContents(tempContainer);
+
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+
+        // Copia para a área de transferência usando a API Clipboard com suporte a HTML
+        try {
+            await navigator.clipboard.write([
+                new ClipboardItem({
+                    'text/html': new Blob([tempContainer.innerHTML], { type: 'text/html' })
+                })
+            ]);
+            alert('Conteúdo copiado para a área de transferência com formatação!');
+        } catch (err) {
+            console.error('Erro ao copiar o conteúdo', err);
+        }
+
+        // Remove o container temporário e limpa a seleção
+        document.body.removeChild(tempContainer);
+        selection?.removeAllRanges();
+    }
+}
 }

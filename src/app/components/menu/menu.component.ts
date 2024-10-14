@@ -20,6 +20,8 @@ export class MenuComponent {
   @Output() ar: EventEmitter<any> = new EventEmitter();
   @Output() ae: EventEmitter<any> = new EventEmitter();
   @Output() rural: EventEmitter<any> = new EventEmitter();
+  @Output() lidoso: EventEmitter<any> = new EventEmitter();
+  @Output() ldeficiente: EventEmitter<any> = new EventEmitter();
 
   handleClick() {
     this.incapacidade.emit();
@@ -48,4 +50,13 @@ export class MenuComponent {
         handleClick7() {
           this.rural.emit();
         }
+
+        handleClick8() {
+          this.lidoso.emit();
+        }
+
+        handleClick9() {
+          this.ldeficiente.emit();
+        }
 }
+

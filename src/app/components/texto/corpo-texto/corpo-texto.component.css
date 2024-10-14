@@ -1,3 +1,6 @@
 .corpo-texto {
   align-self: flex-end;
 }
+p {
+  text-align: justify;
+}

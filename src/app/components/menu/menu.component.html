@@ -12,4 +12,11 @@
   <button mat-menu-item (click)="handleClick5()">Auxílío-Reclusão</button>
   <button mat-menu-item (click)="handleClick6()">Aposentadoria Especial</button>
   <button mat-menu-item (click)="handleClick7()">Rural</button>
+  <button mat-menu-item [matMenuTriggerFor]="loas">LOAS</button>
   </mat-menu>
+
+  <mat-menu #loas="matMenu">
+    <button mat-menu-item (click)="handleClick8()">Idoso</button>
+    <button mat-menu-item (click)="handleClick9()">Deficiente</button>
+  </mat-menu>
+

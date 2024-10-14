@@ -8,6 +8,8 @@
       (ar)="onAr()"
       (ae)="onAe()"
       (rural)="onRural()"
+      (lidoso)="onLoasIdoso()"
+      (ldeficiente)="onLoasDeficiente()"
     ></app-menu>
   </div>
 
@@ -103,75 +105,133 @@
       (showProc)="onShowProc()"
       (showFormularios)="onShowFormularios()"
     ></app-checkbox-ae>
-    <app-checkbox-rural *ngIf="showCheckBoxRural"
-    (showTelefone)="onShowCelular()"
-    (changeNumber)="onChangeNumber()"
-    (showResidencia)="onShowResidencia()"
-    (showComunicacao)="onShowComunicacao()"
-    (showRenuncia)="onShowRenuncia()"
-    (showCelular)="onShowCelular()"
-    (showCertoEDeterminado)="onShowCertoEDeterminado()"
-    (showHipossuficiencia)="onShowHipossuficiencia()"
-    (showValor)="onShowValor()"
-    (showProc)="onShowProc()"
-    (showProvaMaterial)="onShowProvaMaterial()"></app-checkbox-rural>
+    <app-checkbox-rural
+      *ngIf="showCheckBoxRural"
+      (showTelefone)="onShowCelular()"
+      (changeNumber)="onChangeNumber()"
+      (showResidencia)="onShowResidencia()"
+      (showComunicacao)="onShowComunicacao()"
+      (showRenuncia)="onShowRenuncia()"
+      (showCelular)="onShowCelular()"
+      (showCertoEDeterminado)="onShowCertoEDeterminado()"
+      (showHipossuficiencia)="onShowHipossuficiencia()"
+      (showValor)="onShowValor()"
+      (showProc)="onShowProc()"
+      (showProvaMaterial)="onShowProvaMaterial()"
+    ></app-checkbox-rural>
+
+    <app-checkbox-loas-idoso
+      *ngIf="showCheckBoxLoasIdoso"
+      (showTelefone)="onShowTelefoneLoas()"
+      (changeNumber)="onChangeNumber()"
+      (showResidencia)="onShowResidencia()"
+      (showComunicacao)="onShowComunicacao()"
+      (showRenuncia)="onShowRenuncia()"
+      (showCelular)="onShowTelefoneLoas()"
+      (showCertoEDeterminado)="onShowCertoEDeterminado()"
+      (showHipossuficiencia)="onShowHipossuficiencia()"
+      (showValor)="onShowValor()"
+      (showProc)="onShowProc()"
+      (showIndicacaoEndereco)="onShowIndicacaoEndereco()"
+    ></app-checkbox-loas-idoso>
+
+    <app-checkbox-loas-deficiente
+      *ngIf="showCheckBoxLoasDeficiente"
+      (showTelefone)="onShowTelefoneLoas()"
+      (changeNumber)="onChangeNumber()"
+      (showResidencia)="onShowResidencia()"
+      (showComunicacao)="onShowComunicacao()"
+      (showRenuncia)="onShowRenuncia()"
+      (showCelular)="onShowTelefoneLoas()"
+      (showCertoEDeterminado)="onShowCertoEDeterminado()"
+      (showHipossuficiencia)="onShowHipossuficiencia()"
+      (showValor)="onShowValor()"
+      (showProc)="onShowProc()"
+      (showIndicacaoEndereco)="onShowIndicacaoEndereco()"
+    ></app-checkbox-loas-deficiente>
   </div>
-  <div class="text-viewer">
-    <p style="text-align: justify" *ngIf="showGeral">
-      Nos termos da Portaria 21/2019 deste Juizado Especial Federal Cível e do
-      Art. 203, &sect; 4º do CPC, fica a parte autora intimada para, no
-      <strong> prazo de 15 (quinze) dias</strong>, promover emenda à petição
-      inicial, nos seguintes termos:
-    </p>
 
-    <app-concentrada-rural *ngIf="showRural"></app-concentrada-rural>
+  <div class="text-viewer" style="display: flex; flex-direction: column">
+    <div class="botao" style="margin-left: auto; margin-bottom: 20px">
+      <button
+        mat-mini-fab
+        aria-label="Example icon button with a menu icon"
+        (click)="copyContentWithFormatting()"
+      >
+        <mat-icon>content_paste</mat-icon>
+      </button>
+    </div>
+    <div id="content-to-copy">
+      <p style="text-align: justify" *ngIf="showGeral">
+        Nos termos da Portaria 21/2019 deste Juizado Especial Federal Cível e do
+        Art. 203, &sect; 4º do CPC, fica a parte autora intimada para, no
+        <strong> prazo de 15 (quinze) dias</strong>, promover emenda à petição
+        inicial, nos seguintes termos:
+      </p>
 
+      <app-concentrada-rural *ngIf="showRural"></app-concentrada-rural>
+      <app-concentrada-pensao *ngIf="showConcentradaPensao"></app-concentrada-pensao>
 
-
-    <app-texto *ngIf="showRg" class="texto"></app-texto>
-    <app-procuracao *ngIf="showProc" class="texto"></app-procuracao>
-    <app-texto-residencia
-      *ngIf="showResidencia"
-      class="texto"
-    ></app-texto-residencia>
-    <app-renuncia *ngIf="showRenuncia" class="texto"></app-renuncia>
-    <app-hipossuficiencia
-      *ngIf="showHipossuficiencia"
-      class="texto"
-    ></app-hipossuficiencia>
-    <app-comunicacao *ngIf="showComunicacao" class="texto"></app-comunicacao>
-    <app-indeferimento-pp
-      *ngIf="showIndPP"
-      class="texto"
-    ></app-indeferimento-pp>
-    <app-profissao *ngIf="showProfissao" class="texto"></app-profissao>
-    <app-doenca *ngIf="showDoenca" class="texto"></app-doenca>
-    <app-declaracao-129-a *ngIf="show129A" class="texto"></app-declaracao-129-a>
-    <app-celular *ngIf="showCelular" class="texto"></app-celular>
-    <app-certo-e-determinado
-      *ngIf="showCertoEDeterminado"
-      class="texto"
-    ></app-certo-e-determinado>
-    <app-valor-da-causa *ngIf="showValor" class="texto"></app-valor-da-causa>
-    <app-telefone *ngIf="showTelefone"></app-telefone>
-    <app-docs-de-cujus *ngIf="showDocsDeCujus"></app-docs-de-cujus>
-    <app-prova-material-convivencia-de-cujus
-      *ngIf="showAutorCompanheiro"
-    ></app-prova-material-convivencia-de-cujus>
-    <app-prova-material-de-cujus
-      *ngIf="showDeCujusEspecial"
-    ></app-prova-material-de-cujus>
-    <app-dependencia-economica-de-cujus
-      *ngIf="showExConjuge"
-    ></app-dependencia-economica-de-cujus>
-    <app-docs-recluso *ngIf="showDocsRecluso"></app-docs-recluso>
-    <app-outros-dependentes
-      *ngIf="showEventuaisOutros"
-    ></app-outros-dependentes>
-    <app-atestado-carcerario
-      *ngIf="showAtestadoPermanencia"
-    ></app-atestado-carcerario>
-    <app-formularios *ngIf="showFormularios"></app-formularios>
-    <app-inicio-prova-material *ngIf="showProvaMaterial"></app-inicio-prova-material>
+      <app-documentos-pessoais *ngIf="showRg" class="texto"></app-documentos-pessoais>
+      <app-procuracao *ngIf="showProc" class="texto"></app-procuracao>
+      <app-texto-residencia
+        *ngIf="showResidencia"
+        class="texto"
+      ></app-texto-residencia>
+      <app-renuncia *ngIf="showRenuncia" class="texto"></app-renuncia>
+      <app-hipossuficiencia
+        *ngIf="showHipossuficiencia"
+        class="texto"
+      ></app-hipossuficiencia>
+      <app-comunicacao *ngIf="showComunicacao" class="texto"></app-comunicacao>
+      <app-indeferimento-pp
+        *ngIf="showIndPP"
+        class="texto"
+      ></app-indeferimento-pp>
+      <app-profissao *ngIf="showProfissao" class="texto"></app-profissao>
+      <app-doenca *ngIf="showDoenca" class="texto"></app-doenca>
+      <app-declaracao-129-a
+        *ngIf="show129A"
+        class="texto"
+      ></app-declaracao-129-a>
+      <app-celular *ngIf="showCelular" class="texto"></app-celular>
+      <app-certo-e-determinado
+        *ngIf="showCertoEDeterminado"
+        class="texto"
+      ></app-certo-e-determinado>
+      <app-valor-da-causa *ngIf="showValor" class="texto"></app-valor-da-causa>
+      <app-telefone *ngIf="showTelefone"></app-telefone>
+      <app-docs-de-cujus *ngIf="showDocsDeCujus"></app-docs-de-cujus>
+      <app-prova-material-convivencia-de-cujus
+        *ngIf="showAutorCompanheiro"
+      ></app-prova-material-convivencia-de-cujus>
+      <app-prova-material-de-cujus
+        *ngIf="showDeCujusEspecial"
+      ></app-prova-material-de-cujus>
+      <app-dependencia-economica-de-cujus
+        *ngIf="showExConjuge"
+      ></app-dependencia-economica-de-cujus>
+      <app-docs-recluso *ngIf="showDocsRecluso"></app-docs-recluso>
+      <app-outros-dependentes
+        *ngIf="showEventuaisOutros"
+      ></app-outros-dependentes>
+      <app-atestado-carcerario
+        *ngIf="showAtestadoPermanencia"
+      ></app-atestado-carcerario>
+      <app-formularios *ngIf="showFormularios"></app-formularios>
+      <app-inicio-prova-material
+        *ngIf="showProvaMaterial"
+      ></app-inicio-prova-material>
+      <app-telefone-loas *ngIf="showTelefoneLoas"></app-telefone-loas>
+      <app-indicacoes-endereco *ngIf="showIndicacaoEndereco"></app-indicacoes-endereco>
+      <p *ngIf="showConcentradaPensao">  Com o decurso do prazo ou a juntada dos vídeos pela parte autora mediante
+        adesão ao fluxo de Instrução Concentrada, CITE-SE e INTIME-SE o INSS para, no
+        prazo de 30 dias, apresentar resposta ou proposta de acordo no fluxo da
+        Instrução Concentrada da Pauta Pensão, devendo, desde logo, juntar os demais
+        elementos de prova que entender pertinentes, nos termos do fluxo da Instrução
+        Concentrada. Com a manifestação do INSS, intime-se a parte contrária para
+        manifestação sobre eventual acordo ou para réplica, no prazo de 15 dias. Em
+        seguida, voltem conclusos. P.I.</p>
+    </div>
   </div>
 </div>
