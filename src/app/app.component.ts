@@ -136,6 +136,7 @@ export class AppComponent {
   showTelefoneLoas: boolean = false;
   showConcentradaPensao: boolean = false;
   showIndicacaoEndereco: boolean = false;
+  checklistItems: string[] = []; 
 
   onChangeNumber() {
     this.showRg = !this.showRg;
@@ -179,6 +180,11 @@ export class AppComponent {
 
   onShowTelefoneLoas() {
     this.showTelefoneLoas = !this.showTelefoneLoas;
+    
+  }
+
+  getCapitalizedLetter(index: number): string {
+    return String.fromCharCode(97 + index)
   }
 
   onShowCertoEDeterminado() {

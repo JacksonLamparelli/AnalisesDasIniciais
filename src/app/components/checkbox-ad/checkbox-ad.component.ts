@@ -28,6 +28,10 @@ export class CheckboxAdComponent implements OnInit {
   @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
   @Output() showProcuracao: EventEmitter<any> = new EventEmitter();
   @Output() showTelefone: EventEmitter<any> = new EventEmitter();
+  @Output() capitalLetter: EventEmitter<any> = new EventEmitter();
+
+  selectedItems: string[] = [] //Armazena os itens selecionados
+selectedItemCount: number = 0 //Contador dos itens selecionados
 
 
 
@@ -104,6 +108,21 @@ export class CheckboxAdComponent implements OnInit {
 
     });
 
+      // Atualiza os itens selecionados e a contagem
+  onSelectionChange() {
+    // Filtra os itens selecionados
+    this.selectedItems = Object.keys(this.toppings.controls).filter(key => this.toppings.get(key)?.value);
     
+    // Atualiza a contagem dos itens selecionados
+    this.selectedItemCount = this.selectedItems.length;
+
+    // Emite o evento com a contagem atualizada
+    this.capitalLetter.emit();
+  }
+
+  // Função para gerar letras do alfabeto (a, b, c...) com base no índice
+  getCapitalizedLetter(index: number): string {
+    return String.fromCharCode(97 + index); // 97 é o código ASCII para 'a'
+  }
 }
 
