@@ -64,11 +64,6 @@ handleClick11() {
   this.showCertoEDeterminado.emit()
 }
 
-handleClick12() {
-  this.showTelefone.emit()
-}
-
-
   private readonly _formBuilder = inject(FormBuilder);
 
   readonly toppings = this._formBuilder.group({

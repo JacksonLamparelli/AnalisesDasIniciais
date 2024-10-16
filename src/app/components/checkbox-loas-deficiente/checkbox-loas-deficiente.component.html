@@ -1,23 +1,25 @@
 <section class="example-section" [formGroup]="toppings">
-    <h4 style="text-align: center;">LOAS - Deficiente</h4>
-  
-    
-    <app-checkbox-basico
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showTelefone)="onShowCelular()"
-    ></app-checkbox-basico>
+  <h4 style="text-align: center">LOAS - Deficiente</h4>
+  <p (click)="onShowCelular()">
+    <mat-checkbox formControlName="telefone">Nº de Telefone</mat-checkbox>
+  </p>
 
-    <p (click)="handleClick()">
-      <mat-checkbox formControlName="indicacao-endereco"
-        >Endereço em Zona Rural</mat-checkbox
-      >
-      </section>
-  
+  <app-checkbox-basico
+    (changeNumber)="onChangeNumber()"
+    (showResidencia)="onShowResidencia()"
+    (showComunicacao)="onShowComunicacao()"
+    (showRenuncia)="onShowRenuncia()"
+    (showCelular)="onShowCelular()"
+    (showCertoEDeterminado)="onShowCertoEDeterminado()"
+    (showHipossuficiencia)="onShowHipossuficiencia()"
+    (showValor)="onShowValor()"
+    (showProc)="onShowProc()"
+    (showTelefone)="onShowCelular()"
+  ></app-checkbox-basico>
+
+  <p (click)="handleClick()">
+    <mat-checkbox formControlName="indicacao-endereco"
+      >Endereço em Zona Rural</mat-checkbox
+    >
+  </p>
+</section>
