@@ -29,6 +29,7 @@ export class CheckboxAdComponent implements OnInit {
   @Output() showProcuracao: EventEmitter<any> = new EventEmitter();
   @Output() showTelefone: EventEmitter<any> = new EventEmitter();
   @Output() capitalLetter: EventEmitter<any> = new EventEmitter();
+  @Output() comorbidade: EventEmitter<any> = new EventEmitter();
 
   selectedItems: string[] = [] //Armazena os itens selecionados
 selectedItemCount: number = 0 //Contador dos itens selecionados
@@ -66,7 +67,7 @@ selectedItemCount: number = 0 //Contador dos itens selecionados
   }
 
   handleClick8() {
-    this.showRenuncia.emit();
+    this.comorbidade.emit();
   }
 
   handleClick9() {
@@ -117,7 +118,7 @@ selectedItemCount: number = 0 //Contador dos itens selecionados
     this.selectedItemCount = this.selectedItems.length;
 
     // Emite o evento com a contagem atualizada
-    this.capitalLetter.emit();
+    this.capitalLetter.emit(this.selectedItemCount);
   }
 
   // Função para gerar letras do alfabeto (a, b, c...) com base no índice

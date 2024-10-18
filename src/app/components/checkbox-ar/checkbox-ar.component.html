@@ -1,29 +1,15 @@
-<h4>Auxílio-Reclusão:</h4>
- 
-<app-checkbox-basico
-    (changeNumber)="onChangeNumber()"
-    (showResidencia)="onShowResidencia()"
-    (showComunicacao)="onShowComunicacao()"
-    (showRenuncia)="onShowRenuncia()"
-    (showCelular)="onShowCelular()"
-    (showCertoEDeterminado)="onShowCertoEDeterminado()"
-    (showHipossuficiencia)="onShowHipossuficiencia()"
-    (showValor)="onShowValor()"
-    (showProc)="onShowProc()"
-    (showTelefone)="onShowCelular()"
-  ></app-checkbox-basico>
-  <p (click)="handleClick()">
-    <mat-checkbox formControlName="docs-recluso"
-      >Documentos Pessoais do(a) Recluso(a)</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick2()">
-    <mat-checkbox formControlName="outros-dependentes"
-      >Esclarecer eventuais outros dependentes:</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick3()">
-    <mat-checkbox formControlName="atestado-de-permanencia"
-      >Atestado de Permanencia Carcerária</mat-checkbox
-    >
-  </p>
+<p (click)="handleClick()">
+  <mat-checkbox formControlName="docs-recluso"
+    >Documentos Pessoais do(a) Recluso(a)</mat-checkbox
+  >
+</p>
+<p (click)="handleClick2()">
+  <mat-checkbox formControlName="outros-dependentes"
+    >Esclarecer eventuais outros dependentes:</mat-checkbox
+  >
+</p>
+<p (click)="handleClick3()">
+  <mat-checkbox formControlName="atestado-de-permanencia"
+    >Atestado de Permanencia Carcerária</mat-checkbox
+  >
+</p>

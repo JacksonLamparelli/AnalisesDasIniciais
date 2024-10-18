@@ -10,144 +10,169 @@
       (rural)="onRural()"
       (lidoso)="onLoasIdoso()"
       (ldeficiente)="onLoasDeficiente()"
+      (idade)="onIdade()"
     ></app-menu>
   </div>
 
   <div class="checklist-section">
+    <app-checkbox-geral
+      *ngIf="showCheckboxGeral"
+      (changeNumber)="
+        onChangeNumber(
+          'apresentando fotocópia simples e legível dos documentos pessoais da parte autora (RG e CPF/MF) e, quando o caso, de seu representante legal, haja vista  que tais documentos são indispensáveis ao processamento da demanda e, em caso  de êxito na mesma, para fins de expedição oportuna de requisição de pagamento  (RPV ou precatório), nos termos do art. 8º, inciso III da Resolução CJF nº  458/2017, caso seja demandada a Fazenda Pública;'
+        )
+      "
+      (showResidencia)="
+        onChangeNumber(
+          'apresentando comprovante de residência contemporâneo à data da propositura da ação, em nome da própria parte e constando seu endereço preciso. Admite-se também como prova de endereço a apresentação de documento que demonstre a existência de vínculo entre a autora e a pessoa em cujo nome está o comprovante de endereço apresentado sendo que, tratando-se de imóvel alugado, deverá a autora, além do contrato de aluguel (se escrito), apresentar documentos pessoais do proprietário do imóvel. Havendo discrepância entre o endereço indicado na petição inicial e aquele constante do instrumento de mandato ou comprovante de endereço, deverá a parte autora explicar os motivos. Tal emenda faz-se necessária porque a verificação da competência deste juízo federal depende de tal análise (art. 51, inciso III, Lei nº 9.099/95);'
+        )
+      "
+      (showComunicacao)="
+        onChangeNumber(
+          'apresentando \“comunicação de decisão\” emitida pelo INSS, ou outro documento que comprove a data do requerimento (DER) e o indeferimento administrativo do benefício pleiteado nesta ação, já que o Poder Judiciário só pode atuar em caso de lide (“conflito de interesses qualificado por uma pretensão resistida”), carecendo o autor do direito de ação por falta de interesse processual quando a tutela jurisdicional não lhe for necessária;'
+        )
+      "
+      (showRenuncia)="
+        onChangeNumber(
+          'apresentando \“termo de renúncia expressa aos valores excedentes a 60 (sessenta) salários mínimos na data da propositura da ação\”, assinado pela própria parte ou por seu advogado (desde que possua poderes expressos e especiais para renunciar, nos termos do art. 105 CPC), já que não se admite a renúncia tácita para fins de fixação de competência (Enunciado nº 16 do II Encontro dos JEF da 4ª Região) e porque a fixação da competência absoluta dos Juizados Especiais Federais leva em conta o critério de alçada (art. 3º, Lei nº 10.259/01);'
+        )
+      "
+      (showCertoEDeterminado)="
+        onChangeNumber(
+          'formulando pedido certo (an debeatur) e determinado (quantum debeatur), nos termos do art. 322 e 324 CPC, para tanto devendo indicar na petição inicial exatamente sua pretensão, ainda que de forma sucessiva ou eventual e, também, precisamente quanto (em expressão monetária nominal) pretende receber como resultado da almejada condenação, eis que a formulação de pedido ilíquido/genérico só é admitida em situações excepcionais (art. 324, §1º do CPC), sendo que nenhuma delas se evidencia na demanda apresentada;'
+        )
+      "
+      (showHipossuficiencia)="
+        onChangeNumber(
+          'apresentando declaração de próprio punho ou assinada por advogado com poderes expressos no sentido de não dispor de recursos financeiros para arcar com as despesas do processo sem prejuízo do sustento próprio ou de sua família (arts. 98 e 99, §3º, NCPC), haja vista que “a declaração destinada a fazer prova de pobreza presume-se verdadeira quando assinada pelo próprio interessado ou por procurador bastante” (art. 1º, Lei nº 7.115/83) e “a procuração geral para o foro, outorgada por instrumento público ou particular assinado pela parte, habilita o advogado a praticar todos os atos do processo, exceto (...) assinar declaração de hipossuficiência econômica (...)” (art. 105, caput, CPC), sob pena de indeferimento do benefício de Justiça Gratuita requerido na petição inicial;'
+        )
+      "
+      (showValor)="
+        onChangeNumber(
+          'atribuindo valor da causa condizente com o benefício patrimonial pretendido ou esclarecendo o valor atribuído à causa, com apresentação de planilha de cálculo (artigos 292 CPC), haja vista ser condição indispensável da petição inicial (art. 319, inciso V, CPC) e porque se trata de importante elemento do processo, pois serve como critério para fixação de competência – art. 65, CPC; de base de cálculo para recolhimento de custas judiciais – Lei nº 9.289/96; de base de cálculo para fixação de multas processuais – art. 81, art. 77, parágrafo único, art. 1026, § 2º CPC, etc.), principalmente nas ações que tramitam na Justiça Federal, haja vista a possibilidade de ser demandado o pedido no âmbito dos Juizados Especiais Federais, que têm no valor da causa critério para fixação da competência absoluta do juízo (art. 3º, Lei nº 10.259/01). Se houver parcelas vencidas e vincendas, deverá a parte observar as disposições do art. 292, §§ 1º e 2º do CPC e o disposto no Enunciado nº 17 do FONAJEF (Fórum Nacional dos Juizados Especiais): \“Não cabe renúncia sobre parcelas vincendas para fins de fixação de competência nos Juizados Especiais Federais\”;'
+        )
+      "
+      (showProc)="
+        onChangeNumber(
+          'apresentando instrumento de procuração original (digitalizado) e atualizado (com data não superior a um ano da propositura da ação), pois, caso contrário, este juízo não poderá concluir, com a segurança necessária, que o i. advogado subscritor da petição inicial ainda tenha poderes para defender os interesses do(s) autor(es) neste feito, já que em várias outras situações já se constatou que a parte acaba contratando outro profissional para demandar nos Juizados Especiais Federais ou em outros juízos, quando se leva tempo considerável para o início da ação;'
+        )
+      "
+    ></app-checkbox-geral>
     <app-checkbox-ar
       *ngIf="showCheckBoxAr"
-      (showTelefone)="onShowTelefone()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showDocsRecluso)="onShowDocsRecluso()"
-      (showEventuaisOutros)="onShowEventuaisOutros()"
-      (showAtestadoPermanencia)="onShowAtestadoPermanencia()"
+      (showDocsRecluso)="
+        onChangeNumber(
+          'apresentando fotocópia simples e legível dos documentos pessoais (RG e CPF/MF) do recluso, haja vista que referidos documentos são indispensáveis ao processamento da demanda;'
+        )
+      "
+      (showEventuaisOutros)="
+        onChangeNumber(
+          'esclarecendo se o recluso possui outros dependentes incapazes, devendo neste caso promover a integração à lide na qualidade de litisconsorte necessário, com indicação precisa de sua qualificação e endereço para citação, se no polo ativo, apresentando comprovação de sua regular representação processual; se no polo passivo, requerendo expressamente sua citação e indicando precisamente seu endereço, sob pena de extinção do processo (art. 114, parágrafo único, CPC);'
+        )
+      "
+      (showAtestadoPermanencia)="
+        onChangeNumber(
+          'apresentando fotocópia simples, legível e atualizada (até três meses da data de expedição) do atestado de recolhimento à prisão ou permanência carcerária (com a data da prisão inicial), haja vista que referido documento é imprescindível para o processamento da demanda;'
+        )
+      "
     ></app-checkbox-ar>
-    <app-checkbox-atc
-      *ngIf="showCheckBoxAtc"
-      (showTelefone)="onShowTelefone()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-    ></app-checkbox-atc>
     <app-checkbox-pensao
       *ngIf="showCheckboxPensao"
-      (showTelefone)="onShowTelefone()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showDocsDeCujus)="onShowDocsDeCujus()"
+      (showDocsDeCujus)="
+        onChangeNumber(
+          'apresentando fotocópia simples e legível da certidão de óbito e dos documentos pessoais do de cujus (RG e CPF/MF), haja vista que tais documentos mostram-se imprescindíveis para o processamento da ação ou para se verificar eventual caso de homonímia, ou mesmo para permitir ao INSS identificar, com precisão, os dados cadastrais existentes em seus bancos de dados relativos ao(à) segurado(a) falecido com vistas a elaborar sua defesa;'
+        )
+      "
       (showAutorCompanheiro)="onShowAutorCompanheiro()"
-      (showDeCujusEspecial)="onShowDeCujusEspecial()"
-      (showExConjuge)="onShowExConjuge()"
+      (showDeCujusEspecial)="
+        onChangeNumber(
+          'apresentando documentos que sirvam como início de prova material contemporâneos ao período em que se pretende comprovar que o \'de cujus\' era segurado especial, de modo a aferir se na data de entrada do(s) óbito ele mantinha qualidade de segurado. Fica ciente de que a não apresentação de tais documentos acarretará a preclusão na produção da referida prova;'
+        )
+      "
+      (showExConjuge)="
+        onChangeNumber(
+          'apresentando documentos hábeis a comprovar a alegada dependência econômica do autor em relação ao segurado falecido, à época do óbito, uma vez que declarou que estava separada de fato (ou separada judicialmente, ou divorciada) do falecido, devendo trazer provas evidentes dos encargos domésticos por ele assumidos. Fica ciente de que a não apresentação de tais documentos acarretará a preclusão na produção da referida prova;'
+        )
+      "
     ></app-checkbox-pensao>
 
     <app-checkbox-ad
       *ngIf="showCheckBoxAd"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showIndPP)="onShowIndPP()"
-      (showProfissao)="onShowProfissao()"
-      (showDoenca)="onShowDoenca()"
-      (show129A)="onShow129A()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProcuracao)="onShowProc()"
-      (showTelefone)="onShowTelefone()"
+      (showIndPP)="
+        onChangeNumber(
+          'apresentando comunicação de indeferimento do PP (pedido de prorrogação) emitido pelo INSS, conforme preconizam os artigos 340 e 344, in fine, da IN INSS/PRES nº 128/2022, ou outro documento que comprove o indeferimento do pedido de prorrogação do benefício por incapacidade cessado, ou ainda expediente administrativo diverso que demonstre a tentativa frustrada de restabelecer o benefício pleiteado nesta ação, já que o Poder Judiciário só pode atuar em caso de lide (“conflito de interesses qualificado por uma pretensão resistida”), carecendo o autor do direito de ação por falta de interesse processual quando a tutela jurisdicional não lhe for necessária;'
+        )
+      "
+      (showProfissao)="
+        onChangeNumber(
+          'indicando na petição inicial, precisamente, sua profissão, haja vista tratar-se de qualificação necessária ao recebimento da petição inicial (art. 319, inciso II, CPC) e, em se tratando de pretensão quanto à percepção de benefício por incapacidade (art. 129-A, II, LBPS), resta indispensável aferir a atividade habitual do autor como condição à aferição de sua capacidade ou incapacidade laborativa à luz da legislação vigente (arts. 42 e 59 da Lei nº 8.213/91 e art. 203, inciso V, CF/88). Se a profissão anotada na CTPS for de “serviços gerais” cabe ao autor discriminar as tarefas e atividades que desempenha durante o seu labor, dada a necessidade de produção de prova pericial sob ótica profissiológica. Se qualificado na petição inicial como “desempregado”, deverá o autor explicitar qual era sua profissão habitual antes de perder o emprego, ou então, a atividade remunerada desempenhada de forma informal ou autônoma nesse período;'
+        )
+      "
+      (showDoenca)="
+        onChangeNumber(
+          'indicando na petição inicial, precisamente, a doença/lesão/moléstia/deficiência que o acomete e as limitações que ela impõe, nos termos do art. 129-A, I da LBPS (de preferência fazendo remissão ao CIDcorrespondente e descrevendo as principais queixas de saúde), na medida em que sua causa de pedir deve ter contornos bem delineados a fim de permitir ao réu o exercício do seu direito de defesa, bem como ao juízo, sendo necessário, avaliar o conjunto probatório a recair sobre tais fatos alegados como incapacitantes;'
+        )
+      "
+      (show129A)="
+        onChangeNumber(
+          'apresentando declaração quanto à existência ou inexistência de ação judicial anterior com o mesmo objeto e causa de pedir da presente demanda (art. 129-A, I, “d”, LBPS), esclarecendo os motivos pelos quais se entende não haver litispendência ou coisa julgada, quando for o caso. Fica a parte autora ciente de que a insistência no prosseguimento deste feito com posterior constatação de tentativa de violação à litispendência ou à coisa julgada poderá implicar sua condenação por litigância de má-fé por fazer uso do processo para conseguir objetivo ilegal (art. 80, III, CPC);'
+        )
+      "
+      (comorbidade)="
+        onChangeNumber(
+          'esclarecendo qual(is) das comorbidades apontadas na inicial é a principal causa da incapacidade para o trabalho alegada (se a de ordem física ou a de ordem psicológica/psiquiátrica), tendo em vista a necessidade de que a prova pericial seja direcionada conforme o fator incapacitante que a acomete, caso seja de base psiquiátrica. Caso não haja o esclarecimento acima determinado, a parte fica ciente de que será designada perícia com médico generalista para o exame pericial judicial;'
+        )
+      "
     ></app-checkbox-ad>
-    <app-checkbox-basico
-      *ngIf="showCheckBasico"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showTelefone)="onShowTelefone()"
-    ></app-checkbox-basico>
+
     <app-checkbox-ae
       *ngIf="showCheckBoxAe"
-      (showTelefone)="onShowCelular()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showFormularios)="onShowFormularios()"
+      (showFormularios)="
+        onChangeNumber(
+          'apresentando os formulários relativos ao período de trabalho especial cuja conversão é pretendida (DSS-8030, SB-40 ou PPP), bem como eventuais laudos técnicos (LTCAT), devidamente preenchidos e assinados (com identificação do subscritor) que atestem a efetiva exposição a agentes nocivos a que esteve submetida após 29/04/1995, durante seu histórico laboral descrito na petição inicial, ficando ciente de que o descumprimento dessa determinação acarretará a preclusão na produção da referida prova de trabalho como especial para fins de conversão em comum;'
+        )
+      "
     ></app-checkbox-ae>
     <app-checkbox-rural
       *ngIf="showCheckBoxRural"
-      (showTelefone)="onShowCelular()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showProvaMaterial)="onShowProvaMaterial()"
+      (showProvaMaterial)="
+        onChangeNumber(
+          'apresentando eventuais outros documentos que sirvam como início de prova material contemporâneos ao período que se pretende comprovar (Súmula nº 34, TNU)</strong>, de modo a aferir se na data de entrada do(s) requerimento(s) administrativo(s) (ou do início da incapacidade, se a pretensão recair sobre benefício dessa natureza, ou da data em que completou a idade mínima, se a pretensão recair sobre a concessão de aposentadoria por idade rural), a parte autora mantinha qualidade de segurada e a carência necessária para a concessão do benefício pleiteado. Fica ciente de que a não apresentação de tais documentos acarretará a preclusão na produção da referida prova;'
+        )
+      "
     ></app-checkbox-rural>
 
     <app-checkbox-loas-idoso
       *ngIf="showCheckBoxLoasIdoso"
-      (showTelefone)="onShowTelefoneLoas()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowTelefoneLoas()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showIndicacaoEndereco)="onShowIndicacaoEndereco()"
+      (showCelular)="
+        onChangeNumber(
+          'informando o número de telefone celular da parte autora, a fim de facilitar eventual contato do perito judicial ou Oficial de Justiça a serem nomeados para realização de estudo social, que comumente, em demandas desta natureza, precisam entrar em contato com a parte para obter informações sobre como chegar ao endereço em que será feita a diligência;'
+        )
+      "
+      (showIndicacaoEndereco)="
+        onChangeNumber(
+          'apresentando todas as indicações necessárias para a localização do endereço da parte autora a fim de viabilizar a realização do estudo social, oferecendo elementos claros, precisos e efetivos que permitam a localização da propriedade (se possível, apresentando nos autos um croqui, ainda que simplificado, com as referências necessárias, quando se tratar de endereço rural);'
+        )
+      "
     ></app-checkbox-loas-idoso>
 
     <app-checkbox-loas-deficiente
       *ngIf="showCheckBoxLoasDeficiente"
-      (showTelefone)="onShowTelefoneLoas()"
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowTelefoneLoas()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showIndicacaoEndereco)="onShowIndicacaoEndereco()"
+      (showCelular)="
+        onChangeNumber(
+          'informando o número de telefone celular da parte autora, a fim de facilitar eventual contato do perito judicial ou Oficial de Justiça a serem nomeados para realização de estudo social, que comumente, em demandas desta natureza, precisam entrar em contato com a parte para obter informações sobre como chegar ao endereço em que será feita a diligência;'
+        )
+      "
+      (showIndicacaoEndereco)="
+        onChangeNumber(
+          'apresentando todas as indicações necessárias para a localização do endereço da parte autora a fim de viabilizar a realização do estudo social, oferecendo elementos claros, precisos e efetivos que permitam a localização da propriedade (se possível, apresentando nos autos um croqui, ainda que simplificado, com as referências necessárias, quando se tratar de endereço rural);'
+        )
+      "
+      (comorbidade)="
+        onChangeNumber(
+          'esclarecendo qual(is) das comorbidades apontadas na inicial é a principal causa da deficiência alegada (se a de ordem física ou a de ordem psicológica/psiquiátrica), tendo em vista a necessidade de que a prova pericial seja direcionada conforme o fator incapacitante que a acomete, caso seja de base psiquiátrica. Caso não haja o esclarecimento acima determinado, a parte fica ciente de que será designada perícia com médico generalista para o exame pericial judicial;'
+        )
+      "
     ></app-checkbox-loas-deficiente>
   </div>
 
@@ -172,69 +197,18 @@
         inicial, nos seguintes termos:
       </p>
 
-      <app-concentrada-rural *ngIf="showRural"></app-concentrada-rural>
       <app-concentrada-pensao
         *ngIf="showConcentradaPensao"
       ></app-concentrada-pensao>
+      <app-concentrada-rural *ngIf="showRural"></app-concentrada-rural>
 
-      <app-documentos-pessoais
-        *ngIf="showRg"
-        class="texto"
-      ></app-documentos-pessoais>
-      <app-procuracao *ngIf="showProc" class="texto"></app-procuracao>
-      <app-texto-residencia
-        *ngIf="showResidencia"
-        class="texto"
-      ></app-texto-residencia>
-      <app-renuncia *ngIf="showRenuncia" class="texto"></app-renuncia>
-      <app-hipossuficiencia
-        *ngIf="showHipossuficiencia"
-        class="texto"
-      ></app-hipossuficiencia>
-      <app-comunicacao *ngIf="showComunicacao" class="texto"></app-comunicacao>
-      <app-indeferimento-pp
-        *ngIf="showIndPP"
-        class="texto"
-      ></app-indeferimento-pp>
-      <app-profissao *ngIf="showProfissao" class="texto"></app-profissao>
-      <app-doenca *ngIf="showDoenca" class="texto"></app-doenca>
-      <app-declaracao-129-a
-        *ngIf="show129A"
-        class="texto"
-      ></app-declaracao-129-a>
-      <app-celular *ngIf="showCelular" class="texto"></app-celular>
-      <app-certo-e-determinado
-        *ngIf="showCertoEDeterminado"
-        class="texto"
-      ></app-certo-e-determinado>
-      <app-valor-da-causa *ngIf="showValor" class="texto"></app-valor-da-causa>
-      <app-telefone *ngIf="showTelefone"></app-telefone>
-      <app-docs-de-cujus *ngIf="showDocsDeCujus"></app-docs-de-cujus>
-      <app-prova-material-convivencia-de-cujus
-        *ngIf="showAutorCompanheiro"
-      ></app-prova-material-convivencia-de-cujus>
-      <app-prova-material-de-cujus
-        *ngIf="showDeCujusEspecial"
-      ></app-prova-material-de-cujus>
-      <app-dependencia-economica-de-cujus
-        *ngIf="showExConjuge"
-      ></app-dependencia-economica-de-cujus>
-      <app-docs-recluso *ngIf="showDocsRecluso"></app-docs-recluso>
-      <app-outros-dependentes
-        *ngIf="showEventuaisOutros"
-      ></app-outros-dependentes>
-      <app-atestado-carcerario
-        *ngIf="showAtestadoPermanencia"
-      ></app-atestado-carcerario>
-      <app-formularios *ngIf="showFormularios"></app-formularios>
-      <app-inicio-prova-material
-        *ngIf="showProvaMaterial"
-      ></app-inicio-prova-material>
-      <app-telefone-loas *ngIf="showTelefoneLoas"></app-telefone-loas>
-      <app-indicacoes-endereco
-        *ngIf="showIndicacaoEndereco"
-      ></app-indicacoes-endereco>
-      <p *ngIf="showConcentradaPensao">
+      <ol type="a" style="text-align: justify">
+        <li *ngFor="let itensAEmendar of textos; let i = index">
+          {{ textos[i] }}<br /><br />
+        </li>
+      </ol>
+
+      <p style="text-align: justify" *ngIf="showConcentradaPensao">
         Com o decurso do prazo ou a juntada dos vídeos pela parte autora
         mediante adesão ao fluxo de Instrução Concentrada,
         <strong>CITE-SE</strong> e <strong>INTIME-SE</strong> o

@@ -1,22 +1,28 @@
 <button mat-button [matMenuTriggerFor]="animals">Iniciar</button>
 <mat-menu #animals="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="vertebrates">INSS</button>
-  <button mat-menu-item  (click)="handleClick2()">Outros</button>
+  <button mat-menu-item (click)="handleClick2()">Outros</button>
 </mat-menu>
 
 <mat-menu #vertebrates="matMenu">
-  <button mat-menu-item (click)="handleClick()">Benefícios por incapacidade</button>
+  <button mat-menu-item (click)="handleClick()">
+    Benefícios por incapacidade
+  </button>
   <button mat-menu-item (click)="handleClick2()">Genérico</button>
   <button mat-menu-item (click)="handleClick3()">Pensão por Morte</button>
-  <button mat-menu-item (click)="handleClick4()">Aposentadoria por Tempo de Contribuição</button>
+  <button mat-menu-item (click)="handleClick4()">
+    Aposentadoria por Tempo de Contribuição
+  </button>
+  <button mat-menu-item (click)="handleClick10()">
+    Aposentadoria por Idade
+  </button>
   <button mat-menu-item (click)="handleClick5()">Auxílío-Reclusão</button>
   <button mat-menu-item (click)="handleClick6()">Aposentadoria Especial</button>
   <button mat-menu-item (click)="handleClick7()">Rural</button>
   <button mat-menu-item [matMenuTriggerFor]="loas">LOAS</button>
-  </mat-menu>
+</mat-menu>
 
-  <mat-menu #loas="matMenu">
-    <button mat-menu-item (click)="handleClick8()">Idoso</button>
-    <button mat-menu-item (click)="handleClick9()">Deficiente</button>
-  </mat-menu>
-
+<mat-menu #loas="matMenu">
+  <button mat-menu-item (click)="handleClick8()">Idoso</button>
+  <button mat-menu-item (click)="handleClick9()">Deficiente</button>
+</mat-menu>

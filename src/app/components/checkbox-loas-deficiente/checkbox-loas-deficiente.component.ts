@@ -38,6 +38,7 @@ export class CheckBoxLoasDeficienteComponent implements OnInit {
   @Output() showExConjuge: EventEmitter<any> = new EventEmitter();
   @Output() showTelefone: EventEmitter<any> = new EventEmitter();
   @Output() showIndicacaoEndereco: EventEmitter<any> = new EventEmitter();
+  @Output() comorbidade: EventEmitter<any> = new EventEmitter();
   
   ngOnInit(): void {}
 
@@ -91,7 +92,7 @@ export class CheckBoxLoasDeficienteComponent implements OnInit {
   }
 
   handleClick2() {
-    this.showAutorCompanheiro.emit();
+    this.comorbidade.emit();
   }
 
   handleClick3() {

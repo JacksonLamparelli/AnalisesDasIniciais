@@ -22,6 +22,7 @@ export class MenuComponent {
   @Output() rural: EventEmitter<any> = new EventEmitter();
   @Output() lidoso: EventEmitter<any> = new EventEmitter();
   @Output() ldeficiente: EventEmitter<any> = new EventEmitter();
+  @Output() idade: EventEmitter<any> = new EventEmitter();
 
   handleClick() {
     this.incapacidade.emit();
@@ -57,6 +58,10 @@ export class MenuComponent {
 
         handleClick9() {
           this.ldeficiente.emit();
+        }
+
+        handleClick10() {
+          this.idade.emit();
         }
 }
 

@@ -1,21 +1,4 @@
 <section class="example-section" [formGroup]="toppings">
-  <h4>Pensão por Morte:</h4>
-
-  
-  <app-checkbox-basico
-    (changeNumber)="onChangeNumber()"
-    (showResidencia)="onShowResidencia()"
-    (showComunicacao)="onShowComunicacao()"
-    (showRenuncia)="onShowRenuncia()"
-    (showCelular)="onShowCelular()"
-    (showCertoEDeterminado)="onShowCertoEDeterminado()"
-    (showHipossuficiencia)="onShowHipossuficiencia()"
-    (showValor)="onShowValor()"
-    (showProc)="onShowProc()"
-    (showTelefone)="onShowCelular()"
-  ></app-checkbox-basico>
-
-  
   <p (click)="handleClick()">
     <mat-checkbox formControlName="docs-de-cujus"
       >Certidão de Óbito e Documentos Pessoais do De Cujus</mat-checkbox
