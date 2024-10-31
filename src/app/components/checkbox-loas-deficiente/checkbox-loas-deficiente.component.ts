@@ -28,6 +28,7 @@ export class CheckBoxLoasDeficienteComponent implements OnInit {
   @Output() showTelefone: EventEmitter<any> = new EventEmitter();
   @Output() showIndicacaoEndereco: EventEmitter<any> = new EventEmitter();
   @Output() comorbidade: EventEmitter<any> = new EventEmitter();
+  @Output() show129A: EventEmitter<any> = new EventEmitter();
   
   ngOnInit(): void {}
   
@@ -43,6 +44,10 @@ export class CheckBoxLoasDeficienteComponent implements OnInit {
     this.showTelefone.emit();
   }
 
+  handleClick3() {
+    this.show129A.emit();
+  }
+
   form: FormGroup;
 
   // Define os itens com funções associadas
@@ -50,6 +55,7 @@ export class CheckBoxLoasDeficienteComponent implements OnInit {
     { label: 'Nº de telefone', action: () => this.onShowTelefone() },
     { label: 'Endereço em zona rural', action: () => this.handleClick() },
     { label: 'Esclarecer principal comorbidade', action: () => this.handleClick2() },
+    { label: 'Declaração de ação anterior (art. 129-A)', action: () => this.handleClick3() },
     ];
 
   constructor(private fb: FormBuilder) {
