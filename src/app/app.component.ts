@@ -253,7 +253,7 @@ export class AppComponent {
             }),
           }),
         ]);
-        alert('Conteúdo copiado para a área de transferência com formatação!');
+        alert('Copiado com sucesso!');
       } catch (err) {
         console.error('Erro ao copiar o conteúdo', err);
       }
