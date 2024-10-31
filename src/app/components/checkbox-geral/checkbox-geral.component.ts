@@ -1,8 +1,11 @@
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgFor, CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OnInit, Output, EventEmitter } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 
 /** @title Checkboxes with reactive forms */
 @Component({
@@ -10,7 +13,7 @@ import { OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './checkbox-geral.component.html',
   styleUrl: './checkbox-geral.component.css',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe],
+  imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe, NgFor, MatIconModule, MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxGeralComponent implements OnInit {
@@ -26,8 +29,7 @@ export class CheckboxGeralComponent implements OnInit {
   @Output() showValor: EventEmitter<any> = new EventEmitter();
   @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
   @Output() showProc: EventEmitter<any> = new EventEmitter();
-  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
-    
+      
 ngOnInit(): void {
     
 }
@@ -64,21 +66,40 @@ handleClick11() {
   this.showCertoEDeterminado.emit()
 }
 
-  private readonly _formBuilder = inject(FormBuilder);
+form: FormGroup;
 
-  readonly toppings = this._formBuilder.group({
-    rg: false,
-    procuracao: false,
-    residencia: false,
-    renuncia: false,
-    hipossuficiencia: false,
-    comunicacao: false,
-    indeferimentoPP: false,
-    profissão: false,
-    doença: false,
-    "valor-da-causa": false,
-    "pedido-certo": false,
-    telefone: false
+  // Define os itens com funções associadas
+  items = [
+    { label: 'RG/CPF', action: () => this.handleClick() },
+    { label: 'Procuração', action: () => this.handleClick2() },
+    { label: 'Comprovante de residência', action: () => this.handleClick3() },
+    { label: 'Termo de renúncia', action: () => this.handleClick5() },
+    { label: 'Declaração de hipossuficiência', action: () => this.handleClick9() },
+    { label: 'Comunicação de decisão', action: () => this.handleClick4() },
+    { label: 'Valor da causa', action: () => this.handleClick10() },
+    { label: 'Pedido certo e determinado', action: () => this.handleClick11() },
+  ];
 
-  });
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      checkboxes: this.fb.array(this.items.map(() => false))
+    });
+  }
+
+  get checkboxes() {
+    return this.form.get('checkboxes') as FormArray;
+  }
+
+  onCheckboxChange(index: number) {
+    // Executa o método associado ao checkbox correspondente
+    this.items[index].action();
+      }
+
+  // Método para remover o item
+  removeItem(index: number) {
+    // Remove o item da lista
+    this.items.splice(index, 1);
+    // Remove o respectivo checkbox do FormArray
+    this.checkboxes.removeAt(index);
+  }
 }

@@ -1,22 +1,16 @@
-<section class="example-section" [formGroup]="toppings">
-  <p (click)="handleClick()">
-    <mat-checkbox formControlName="docs-de-cujus"
-      >Certidão de Óbito e Documentos Pessoais do De Cujus</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick2()">
-    <mat-checkbox formControlName="prova-material"
-      >Autor(a) Companheiro(a): início de prova material</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick3()">
-    <mat-checkbox formControlName="de-cujus-especial"
-      >Falecido Segurado Especial: início de prova material</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick4()">
-    <mat-checkbox formControlName="ex-conjuge"
-      >Autor(a) Ex-cônjuge: dependência econômica</mat-checkbox
-    >
-  </p>
-</section>
+<form [formGroup]="form">
+  <div formArrayName="checkboxes">
+    <div *ngFor="let item of items; let i = index">
+      <mat-checkbox [formControlName]="i" (click)="onCheckboxChange(i)">
+        {{ item.label }} </mat-checkbox
+      ><button
+        mat-mini-fab
+        style="margin: 10px; width: 30px; height: 30px"
+        type="button"
+        (click)="removeItem(i)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

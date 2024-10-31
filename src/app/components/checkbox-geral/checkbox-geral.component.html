@@ -1,34 +1,16 @@
-<section class="example-section" [formGroup]="toppings">
-  <p (click)="handleClick()">
-    <mat-checkbox formControlName="rg">RG/CPF</mat-checkbox>
-  </p>
-  <p (click)="handleClick2()">
-    <mat-checkbox formControlName="procuracao">Procuração</mat-checkbox>
-  </p>
-  <p (click)="handleClick3()">
-    <mat-checkbox formControlName="residencia"
-      >Comprovante de residência</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick5()">
-    <mat-checkbox formControlName="renuncia">Termo de Renúncia</mat-checkbox>
-  </p>
-  <p (click)="handleClick9()">
-    <mat-checkbox formControlName="hipossuficiencia"
-      >Declaração de Hipossuficiência</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick4()">
-    <mat-checkbox formControlName="comunicacao"
-      >Comunicacão de Decisão</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick10()">
-    <mat-checkbox formControlName="valor-da-causa">Valor da Causa</mat-checkbox>
-  </p>
-  <p (click)="handleClick11()">
-    <mat-checkbox formControlName="pedido-certo"
-      >Pedido Certo e Determinado</mat-checkbox
-    >
-  </p>
-</section>
+<form [formGroup]="form">
+  <div formArrayName="checkboxes">
+    <div *ngFor="let item of items; let i = index">
+      <mat-checkbox [formControlName]="i" (click)="onCheckboxChange(i)">
+        {{ item.label }} </mat-checkbox
+      ><button
+        mat-mini-fab
+        style="margin: 10px; width: 30px; height: 30px"
+        type="button"
+        (click)="removeItem(i)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

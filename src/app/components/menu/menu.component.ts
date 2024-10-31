@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { Component } from '@angular/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 import { Output, EventEmitter } from '@angular/core';
 
 /**
@@ -34,34 +34,33 @@ export class MenuComponent {
 
   handleClick3() {
     this.pensao.emit();
-    }
+  }
 
-    handleClick4() {
-      this.atc.emit();
-      }
-      
-      handleClick5() {
-        this.ar.emit();
-        }
+  handleClick4() {
+    this.atc.emit();
+  }
 
-        handleClick6() {
-          this.ae.emit();
-        }
+  handleClick5() {
+    this.ar.emit();
+  }
 
-        handleClick7() {
-          this.rural.emit();
-        }
+  handleClick6() {
+    this.ae.emit();
+  }
 
-        handleClick8() {
-          this.lidoso.emit();
-        }
+  handleClick7() {
+    this.rural.emit();
+  }
 
-        handleClick9() {
-          this.ldeficiente.emit();
-        }
+  handleClick8() {
+    this.lidoso.emit();
+  }
 
-        handleClick10() {
-          this.idade.emit();
-        }
+  handleClick9() {
+    this.ldeficiente.emit();
+  }
+
+  handleClick10() {
+    this.idade.emit();
+  }
 }
-

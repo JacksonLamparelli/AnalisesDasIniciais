@@ -1,5 +1,16 @@
-<p (click)="handleClick()">
-  <mat-checkbox formControlName="eventuais-formularios"
-    >Eventuais Outros Formulários (PPP etc)</mat-checkbox
-  >
-</p>
+<form [formGroup]="form">
+  <div formArrayName="checkboxes">
+    <div *ngFor="let item of items; let i = index">
+      <mat-checkbox [formControlName]="i" (click)="onCheckboxChange(i)">
+        {{ item.label }} </mat-checkbox
+      ><button
+        mat-mini-fab
+        style="margin: 10px; width: 30px; height: 30px"
+        type="button"
+        (click)="removeItem(i)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

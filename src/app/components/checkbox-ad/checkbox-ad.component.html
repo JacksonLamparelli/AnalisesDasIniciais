@@ -1,25 +1,16 @@
-<section class="example-section" [formGroup]="toppings">
-  <p (click)="handleClick4()">
-    <mat-checkbox formControlName="indeferimentoPP"
-      >Indeferimento do PP</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick5()">
-    <mat-checkbox formControlName="profissão"
-      >Indicação da profissão</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick6()">
-    <mat-checkbox formControlName="doença">Indicação da doença</mat-checkbox>
-  </p>
-  <p (click)="handleClick7()">
-    <mat-checkbox formControlName="ação-anterior"
-      >Declaração de ação anterior (art. 129-A)</mat-checkbox
-    >
-  </p>
-  <p (click)="handleClick8()">
-    <mat-checkbox formControlName="comorbidade"
-      >Esclarecer Comorbidade Incapacitante</mat-checkbox
-    >
-  </p>
-</section>
+<form [formGroup]="form">
+  <div formArrayName="checkboxes">
+    <div *ngFor="let item of items; let i = index">
+      <mat-checkbox [formControlName]="i" (click)="onCheckboxChange(i)">
+        {{ item.label }} </mat-checkbox
+      ><button
+        mat-mini-fab
+        style="margin: 10px; width: 30px; height: 30px"
+        type="button"
+        (click)="removeItem(i)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

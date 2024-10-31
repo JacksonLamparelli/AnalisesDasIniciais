@@ -1,9 +1,16 @@
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgFor, CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OnInit, Output, EventEmitter } from '@angular/core';
-import { CheckboxBasicoComponent } from '../checkbox-basico/checkbox-basico.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 /** @title Checkboxes with reactive forms */
 @Component({
@@ -16,70 +23,19 @@ import { CheckboxBasicoComponent } from '../checkbox-basico/checkbox-basico.comp
     ReactiveFormsModule,
     MatCheckboxModule,
     JsonPipe,
-    CheckboxBasicoComponent,
-    ],
+    NgFor,
+    MatButtonModule,
+    MatIconModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxArComponent implements OnInit {
-  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
-  @Output() changeNumber: EventEmitter<any> = new EventEmitter();
-  @Output() showResidencia: EventEmitter<any> = new EventEmitter();
-  @Output() showComunicacao: EventEmitter<any> = new EventEmitter();
-  @Output() showRenuncia: EventEmitter<any> = new EventEmitter();
-  @Output() showHipossuficiencia: EventEmitter<any> = new EventEmitter();
-  @Output() showValor: EventEmitter<any> = new EventEmitter();
-  @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
-  @Output() showCelular: EventEmitter<any> = new EventEmitter();
-  @Output() showProc: EventEmitter<any> = new EventEmitter();
   @Output() showDocsRecluso: EventEmitter<any> = new EventEmitter();
   @Output() showEventuaisOutros: EventEmitter<any> = new EventEmitter();
   @Output() showAtestadoPermanencia: EventEmitter<any> = new EventEmitter();
 
-  
-  
-  
   ngOnInit(): void {}
-
-  onChangeNumber() {
-    this.changeNumber.emit();
-  }
-
-  onShowResidencia() {
-    this.showResidencia.emit();
-  }
-
-  onShowComunicacao() {
-    this.showComunicacao.emit();
-  }
-
-  onShowRenuncia() {
-    this.showRenuncia.emit();
-  }
-
-  onShowHipossuficiencia() {
-    this.showHipossuficiencia.emit();
-  }
-
-  handleClick10() {
-    this.showValor.emit();
-  }
-
-  onShowCertoEDeterminado() {
-    this.showCertoEDeterminado.emit();
-  }
-
-  onShowCelular() {
-    this.showCelular.emit();
-  }
-
-  onShowValor() {
-    this.showValor.emit();
-  }
-
-  onShowProc() {
-    this.showProc.emit();
-  }
-
+  
   handleClick() {
     this.showDocsRecluso.emit();
   }
@@ -92,26 +48,35 @@ export class CheckboxArComponent implements OnInit {
     this.showAtestadoPermanencia.emit();
   }
 
-  onShowTelefone() {
-    this.showTelefone.emit;
+  form: FormGroup;
+
+  // Define os itens com funções associadas
+  items = [
+    { label: 'Documentos pessoais do(a) recluso(a)', action: () => this.handleClick() },
+    { label: 'Esclarecer eventuais outros dependentes', action: () => this.handleClick2() },
+    { label: 'Atestado de permanência carcerária', action: () => this.handleClick3() },
+    ];
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      checkboxes: this.fb.array(this.items.map(() => false))
+    });
   }
 
-  private readonly _formBuilder = inject(FormBuilder);
+  get checkboxes() {
+    return this.form.get('checkboxes') as FormArray;
+  }
 
-  readonly toppings = this._formBuilder.group({
-    telefone: false,
-    rg: false,
-    procuracao: false,
-    residencia: false,
-    renuncia: false,
-    hipossuficiencia: false,
-    comunicacao: false,
-    indeferimentoPP: false,
-    profissão: false,
-    doença: false,
-    'docs-recluso': false,
-    'outros-dependentes': false,
-    'atestado-permanencia': false,
-        
-  });
+  onCheckboxChange(index: number) {
+    // Executa o método associado ao checkbox correspondente
+    this.items[index].action();
+      }
+
+  // Método para remover o item
+  removeItem(index: number) {
+    // Remove o item da lista
+    this.items.splice(index, 1);
+    // Remove o respectivo checkbox do FormArray
+    this.checkboxes.removeAt(index);
+  }
 }

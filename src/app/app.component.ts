@@ -7,7 +7,6 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { MenuComponent } from './components/menu/menu.component';
 import { CheckboxBasicoComponent } from './components/checkbox-basico/checkbox-basico.component';
 import { CheckboxPensaoComponent } from './components/checkbox-pensao/checkbox-pensao.component';
-import { CheckboxAtcComponent } from './components/checkbox-atc/checkbox-atc.component';
 import { CheckboxArComponent } from './components/checkbox-ar/checkbox-ar.component';
 import { CheckboxAeComponent } from './components/checkbox-ae/checkbox-ae.component';
 import { CheckboxRuralComponent } from './components/checkbox-rural/checkbox-rural.component';
@@ -32,7 +31,6 @@ import { CheckboxGeralComponent } from './components/checkbox-geral/checkbox-ger
     MenuComponent,
     CheckboxBasicoComponent,
     CheckboxPensaoComponent,
-    CheckboxAtcComponent,
     CheckboxArComponent,
     CheckboxAeComponent,
     CheckboxRuralComponent,
@@ -168,7 +166,7 @@ export class AppComponent {
 
   onRural() {
     this.showCheckboxGeral = true;
-    this.showCheckBoxRural = false;
+    this.showCheckBoxRural = true;
     this.showCheckBoxAe = false;
     this.showCheckBoxAr = false;
     this.showCheckBoxAtc = false;

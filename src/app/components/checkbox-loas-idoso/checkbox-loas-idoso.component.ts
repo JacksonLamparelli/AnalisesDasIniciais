@@ -1,10 +1,16 @@
-import { JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JsonPipe, NgFor, CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component,  } from '@angular/core';
+import {
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OnInit, Output, EventEmitter } from '@angular/core';
-import { CheckboxBasicoComponent } from '../checkbox-basico/checkbox-basico.component';
-import { MenuComponent } from '../menu/menu.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 /** @title Checkboxes with reactive forms */
 @Component({
@@ -17,116 +23,55 @@ import { MenuComponent } from '../menu/menu.component';
     ReactiveFormsModule,
     MatCheckboxModule,
     JsonPipe,
-    CheckboxBasicoComponent,
-    MenuComponent,
-  ],
+    NgFor,
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckBoxLoasIdosoComponent implements OnInit {
-  @Output() changeNumber: EventEmitter<any> = new EventEmitter();
-  @Output() showResidencia: EventEmitter<any> = new EventEmitter();
-  @Output() showComunicacao: EventEmitter<any> = new EventEmitter();
-  @Output() showRenuncia: EventEmitter<any> = new EventEmitter();
-  @Output() showHipossuficiencia: EventEmitter<any> = new EventEmitter();
-  @Output() showValor: EventEmitter<any> = new EventEmitter();
-  @Output() showCertoEDeterminado: EventEmitter<any> = new EventEmitter();
   @Output() showCelular: EventEmitter<any> = new EventEmitter();
-  @Output() showProc: EventEmitter<any> = new EventEmitter();
-  @Output() showDocsDeCujus: EventEmitter<any> = new EventEmitter();
-  @Output() showAutorCompanheiro: EventEmitter<any> = new EventEmitter();
-  @Output() showDeCujusEspecial: EventEmitter<any> = new EventEmitter();
-  @Output() showExConjuge: EventEmitter<any> = new EventEmitter();
-  @Output() showTelefone: EventEmitter<any> = new EventEmitter();
   @Output() showIndicacaoEndereco: EventEmitter<any> = new EventEmitter();
-  
+
   ngOnInit(): void {}
 
-  
-  onShowTelefone() {
-    this.showTelefone.emit;
-  }
-
-  onChangeNumber() {
-    this.changeNumber.emit();
-  }
-
-  onShowResidencia() {
-    this.showResidencia.emit();
-  }
-
-  onShowComunicacao() {
-    this.showComunicacao.emit();
-  }
-
-  onShowRenuncia() {
-    this.showRenuncia.emit();
-  }
-
-  onShowHipossuficiencia() {
-    this.showHipossuficiencia.emit();
-  }
-
-  handleClick10() {
-    this.showValor.emit();
-  }
-
-  onShowCertoEDeterminado() {
-    this.showCertoEDeterminado.emit();
-  }
-
-  onShowCelular() {
+  handleClick2() {
     this.showCelular.emit();
-  }
-
-  onShowValor() {
-    this.showValor.emit();
-  }
-
-  onShowProc() {
-    this.showProc.emit();
   }
 
   handleClick() {
     this.showIndicacaoEndereco.emit();
   }
 
-  handleClick2() {
-    this.showAutorCompanheiro.emit();
+  form: FormGroup;
+
+  // Define os itens com funções associadas
+  items = [
+    { label: 'Endereço em zona rural', action: () => this.handleClick() },
+    { label: 'Nº de telefone', action: () => this.handleClick2() },
+  ];
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      checkboxes: this.fb.array(this.items.map(() => false)),
+    });
   }
 
-  handleClick3() {
-    this.showDeCujusEspecial.emit();
+  get checkboxes() {
+    return this.form.get('checkboxes') as FormArray;
   }
 
-  handleClick4() {
-    this.showExConjuge.emit();
+  onCheckboxChange(index: number) {
+    // Executa o método associado ao checkbox correspondente
+    this.items[index].action();
   }
 
-  handleClick5() {
-    this.showResidencia.emit;
+  // Método para remover o item
+  removeItem(index: number) {
+    // Remove o item da lista
+    this.items.splice(index, 1);
+    // Remove o respectivo checkbox do FormArray
+    this.checkboxes.removeAt(index);
   }
-
-
-  private readonly _formBuilder = inject(FormBuilder);
-
-  readonly toppings = this._formBuilder.group({
-    rg: false,
-    procuracao: false,
-    residencia: false,
-    renuncia: false,
-    hipossuficiencia: false,
-    comunicacao: false,
-    indeferimentoPP: false,
-    profissão: false,
-    doença: false,
-    telefone: false,
-    'valor-da-causa': false,
-    'pedido-certo': false,
-    'docs-de-cujus': false,
-    'prova-material': false,
-    'de-cujus-especial': false,
-    'ex-conjuge': false,
-    'indicacao-endereco': false,
-    
-  });
 }

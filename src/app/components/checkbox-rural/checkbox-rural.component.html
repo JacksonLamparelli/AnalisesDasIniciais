@@ -1,25 +1,16 @@
-<section class="example-section" [formGroup]="toppings">
-    <h4>Aposentadoria por Idade Rural:</h4>
-  
-    
-    <app-checkbox-basico
-      (changeNumber)="onChangeNumber()"
-      (showResidencia)="onShowResidencia()"
-      (showComunicacao)="onShowComunicacao()"
-      (showRenuncia)="onShowRenuncia()"
-      (showCelular)="onShowCelular()"
-      (showCertoEDeterminado)="onShowCertoEDeterminado()"
-      (showHipossuficiencia)="onShowHipossuficiencia()"
-      (showValor)="onShowValor()"
-      (showProc)="onShowProc()"
-      (showTelefone)="onShowCelular()"
-    ></app-checkbox-basico>
-  
-    
-    <p (click)="handleClick()">
-      <mat-checkbox formControlName="prova-material"
-        >Início de Prova Material</mat-checkbox
+<form [formGroup]="form">
+  <div formArrayName="checkboxes">
+    <div *ngFor="let item of items; let i = index">
+      <mat-checkbox [formControlName]="i" (click)="onCheckboxChange(i)">
+        {{ item.label }} </mat-checkbox
+      ><button
+        mat-mini-fab
+        style="margin: 10px; width: 30px; height: 30px"
+        type="button"
+        (click)="removeItem(i)"
       >
-    </p>
-    </section>
-  
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>
